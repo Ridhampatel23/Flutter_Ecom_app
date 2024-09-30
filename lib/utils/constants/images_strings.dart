@@ -13,4 +13,9 @@ class ecomImages{
 
 
   //-- Social Logos
+
+  // -- OnBoarding Images
+  static const String onBoardingImage1 = "assets/images/onboarding_screen_images/Welcome.gif";
+  static const String onBoardingImage2 = "assets/images/onboarding_screen_images/Delivery_package.gif";
+  static const String onBoardingImage3 = "assets/images/onboarding_screen_images/Credit_card.gif";
 }

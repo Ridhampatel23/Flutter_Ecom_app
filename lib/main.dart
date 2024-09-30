@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'app.dart';
 
-/// -------Entry Point for the Fltutter Application ---------
+/// -------Entry Point for the Flutter Application ---------
 void main() {
   /* TODO : Add Widget Bindings
   TODO : Init Local Storage

@@ -1,0 +1,16 @@
+#This file is show your app logo when the app is launched and before the log in screen
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets\logos\splash_screen_logos\FlyBuy_logo_light.jpg
+  image_dark: assets\logos\splash_screen_logos\FlyBuy_logo_dark.jpg
+  fit: "contain" # Try "cover" or "contain"
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: assets\logos\splash_screen_logos\FlyBuy_logo_light.jpg
+    image_dark: assets\logos\splash_screen_logos\FlyBuy_logo_dark.jpg
+    fit: "contain" # Try "cover" or "contain"
+
+  web: false
+  #to remove the splash screen, run this command in the terminal - flutter pub run flutter_native_splash:remove
