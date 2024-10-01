@@ -10,6 +10,8 @@
 class ecomImages{
 
   //-- App Logos
+  static const String lightAppLogo =  "assets/logos/splash_screen_logos/FlyBuy_logo_light.jpg";
+  static const String darkAppLogo =  "assets/logos/splash_screen_logos/FlyBuy_logo_dark.jpg";
 
 
   //-- Social Logos
