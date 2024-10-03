@@ -13,6 +13,10 @@ class ecomImages{
   static const String lightAppLogo =  "assets/logos/splash_screen_logos/FlyBuy_logo_light.jpg";
   static const String darkAppLogo =  "assets/logos/splash_screen_logos/FlyBuy_logo_dark.jpg";
 
+  //Footer icons
+  static const String GoogleLogo = "assets/images/Footer_icons/google.jpg";
+  static const String FacebookLogo = "assets/images/Footer_icons/facebook.png";
+
 
   //-- Social Logos
 
