@@ -1,4 +1,7 @@
+import 'package:ecom_store/features/authentication/screens/singup/widgets/singup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
@@ -82,7 +85,7 @@ class ecomLoginForm extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const signupScreen()),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0), // Matching padding
