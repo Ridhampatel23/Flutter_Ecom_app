@@ -16,8 +16,8 @@ class ecomImages{
   //Footer icons
   static const String GoogleLogo = "assets/images/Footer_icons/google.jpg";
   static const String FacebookLogo = "assets/images/Footer_icons/facebook.png";
-
-
+  static const String EmailLogo = "assets/images/login_images/Email_Verification.gif";
+  static const String AccountCreated = "assets/images/login_images/account_created_successfully.gif";
   //-- Social Logos
 
   // -- OnBoarding Images
