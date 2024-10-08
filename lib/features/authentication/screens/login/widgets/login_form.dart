@@ -1,3 +1,4 @@
+import 'package:ecom_store/features/authentication/screens/password_config/forgot_password.dart';
 import 'package:ecom_store/features/authentication/screens/singup/singup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,9 +54,9 @@ class ecomLoginForm extends StatelessWidget {
                   ],
                 ),
 
-                ///Forget Password
+                ///Forgot Password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => const ForgotPassword()),
                   child: const Text(
                     "Forgot Password?",
                   ),

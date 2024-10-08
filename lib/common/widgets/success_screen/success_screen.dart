@@ -22,6 +22,7 @@ class SuccessScreen extends StatelessWidget {
           padding: ecomSpacingStyles.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
+              ///Image or Animation
               Image(
                 image:   AssetImage(image),
                 width: ecomHelperFunctions.screenWidth() * 0.6,
@@ -38,6 +39,7 @@ class SuccessScreen extends StatelessWidget {
                   textAlign: TextAlign.center),
               const SizedBox(height: ecomSizes.spaceBtwnSections),
 
+              ///Button
               SizedBox(
                   height: 50,
                   width: double.infinity,
