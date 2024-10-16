@@ -1,6 +1,6 @@
-import 'package:ecom_store/features/authentication/controllers_onboarding/onboarding_controller.dart';
-import 'package:ecom_store/features/screens/onBoarding/widgets/onboarding_navigation_dots.dart';
-import 'package:ecom_store/features/screens/onBoarding/widgets/onboarding_next_button.dart';
+import 'package:ecom_store/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:ecom_store/features/authentication/screens/onboarding/widgets/onboarding_navigation_dots.dart';
+import 'package:ecom_store/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';

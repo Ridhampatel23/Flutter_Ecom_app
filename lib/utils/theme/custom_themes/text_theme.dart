@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 // This class defines a set of text themes (light and dark) to be used throughout the application.
-class ecomTextTheme {
+class EcomTextTheme {
   // Private constructor to prevent instantiation. This class only provides static members.
-  ecomTextTheme._();
+  EcomTextTheme._();
 
   // Light theme text styles
   static TextTheme lightTextTheme = TextTheme(

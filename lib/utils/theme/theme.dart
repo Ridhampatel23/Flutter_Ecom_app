@@ -22,7 +22,7 @@ class mainAppTheme {
     outlinedButtonTheme: ecomOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: ecomTextFormFieldTheme.lightInputDecorationTheme,
     scaffoldBackgroundColor: Colors.white,
-    textTheme: ecomTextTheme.lightTextTheme,
+    textTheme: EcomTextTheme.lightTextTheme,
     elevatedButtonTheme: ecomElevatedButtonTheme.LightElevatedButton,
   );
 
@@ -31,7 +31,7 @@ class mainAppTheme {
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.black,
-    textTheme: ecomTextTheme.darkTextTheme,
+    textTheme: EcomTextTheme.darkTextTheme,
     elevatedButtonTheme: ecomElevatedButtonTheme.darkElevatedButton,
     outlinedButtonTheme: ecomOutlinedButtonTheme.darkOutlinedButtonTheme,
     chipTheme: ecomChipTheme.darkChipTheme,
