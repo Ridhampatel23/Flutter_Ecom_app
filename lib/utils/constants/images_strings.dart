@@ -22,6 +22,12 @@ class ecomImages{
 
   // -- OnBoarding Images
   static const String onBoardingImage1 = "assets/images/onboarding_screen_images/Welcome.gif";
-  static const String onBoardingImage2 = "assets/images/onboarding_screen_images/Delivery_package.gif";
-  static const String onBoardingImage3 = "assets/images/onboarding_screen_images/Credit_card.gif";
+  static const String onBoardingImage3 = "assets/images/onboarding_screen_images/Delivery_package.gif";
+  static const String onBoardingImage2 = "assets/images/onboarding_screen_images/Credit_card.gif";
+
+  // -- Home Screen Banners
+  static const String newArrivals = "assets/images/home_screeen_carousal_images/new_Arrivals.webp";
+  static const String sneakerOfTheWeek = "assets/images/home_screeen_carousal_images/sneaker_of_the_week.webp";
+  static const String snkrsRestock = "assets/images/home_screeen_carousal_images/snkrs_restock.webp";
+
 }
