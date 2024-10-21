@@ -32,6 +32,7 @@ class ecomRoundedBanners extends StatelessWidget {
             color: bgColor,
             borderRadius: BorderRadius.circular(borderRadius)),
         child: ClipRRect(
+
             borderRadius: applyImageRadius? BorderRadius.circular(borderRadius) : BorderRadius.zero,
             child: Image(
               image: isNetworkImage ? NetworkImage(imageUrl) : AssetImage(imageUrl) as ImageProvider,

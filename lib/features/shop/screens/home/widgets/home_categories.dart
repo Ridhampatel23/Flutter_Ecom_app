@@ -1,4 +1,6 @@
+import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/image_text/vertical_image_text.dart';
 
@@ -17,7 +19,7 @@ class ecomHomeCategories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           //The padding will add space between all the circular contianers.
-          return ecomVerticalImageText(image: "Asset", title: 'Category', onTap: (){});
+          return ecomVerticalImageText(image: " ", title: 'Category', onTap: (){});
         },
       ),
     );

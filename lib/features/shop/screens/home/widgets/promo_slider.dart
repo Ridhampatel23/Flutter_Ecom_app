@@ -25,9 +25,12 @@ class ecomPromoSlider extends StatelessWidget {
         CarouselSlider(
           options: CarouselOptions(
             viewportFraction: 1,
+            aspectRatio: 16/9,
             onPageChanged: (index, _) => controller.updatePageIndicator(index),
           ),
-          items: banners.map((url) => ecomRoundedBanners(imageUrl: url)).toList(),
+          items: banners.map((url) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              child: ecomRoundedBanners( imageUrl: url))).toList(),
         ),
         const SizedBox(height: ecomSizes.spaceBtwnItems),
         Center(

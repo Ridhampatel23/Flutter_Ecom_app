@@ -30,4 +30,7 @@ class ecomImages{
   static const String sneakerOfTheWeek = "assets/images/home_screeen_carousal_images/sneaker_of_the_week.webp";
   static const String snkrsRestock = "assets/images/home_screeen_carousal_images/snkrs_restock.webp";
 
+  // -- Products
+  static const String nikeDunkGreen = "assets/images/products_images/nikeDunkGreen.jpg";
+
 }
