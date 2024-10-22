@@ -5,14 +5,14 @@ import '../../../utils/constants/sizes.dart';
 
 class ecomRoundedBanners extends StatelessWidget {
   const ecomRoundedBanners({
-    super.key, this.width = double.infinity, this.height, required this.imageUrl, this.applyImageRadius = true, this.border, this.bgColor = ecomColors.light, this.fit = BoxFit.fill, this.padding, this.isNetworkImage = false, this.onPressed, this.borderRadius = ecomSizes.medium,
+    super.key, this.width = double.infinity, this.height, required this.imageUrl, this.applyImageRadius = true, this.border, this.bgColor, this.fit = BoxFit.fill, this.padding, this.isNetworkImage = false, this.onPressed, this.borderRadius = ecomSizes.medium,
   });
 
   final double? width, height;
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
-  final Color bgColor;
+  final Color? bgColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;

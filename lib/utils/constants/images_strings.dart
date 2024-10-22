@@ -33,4 +33,7 @@ class ecomImages{
   // -- Products
   static const String nikeDunkGreen = "assets/images/products_images/nikeDunkGreen.jpg";
 
+  // -- Clothing Icon
+  static const String clothingIcon  = "assets/icons/clothingIcon.png";
+
 }

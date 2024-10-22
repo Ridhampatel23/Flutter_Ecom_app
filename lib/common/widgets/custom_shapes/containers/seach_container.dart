@@ -12,13 +12,14 @@ class ecomSearchContainer extends StatelessWidget {
     required this.text,
     this.icon = Iconsax.search_normal,
     this.showBG = true,
-    this.showBorder = true, this.onTap,
+    this.showBorder = true, this.onTap, this.padding =  const EdgeInsets.symmetric(horizontal: ecomSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBG, showBorder;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class ecomSearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: ecomSizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: ecomDeviceUtils.getScreenWidth(context),
           padding: const EdgeInsets.all(ecomSizes.medium),

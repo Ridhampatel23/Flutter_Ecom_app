@@ -1,3 +1,4 @@
+import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -7,14 +8,15 @@ class ecomCartCounterIcon extends StatelessWidget {
   const ecomCartCounterIcon({
     super.key,
     required this.onPressed,
-    required this.iconColor,
+    this.iconColor,
   });
 
   final VoidCallback onPressed;
-  final Color iconColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
+    final dark = ecomHelperFunctions.isDarkMode(context);
     return Stack(
       children: [
         IconButton(
@@ -26,13 +28,13 @@ class ecomCartCounterIcon extends StatelessWidget {
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-              color: ecomColors.blackColor.withOpacity(1),
+              color: dark ?ecomColors.whiteColor : ecomColors.blackColor.withOpacity(1),
               borderRadius: BorderRadius.circular(100),
             ),
             child: Center(
               child: Text('2',
                   style: Theme.of(context).textTheme.labelLarge!.apply(
-                      color: ecomColors.whiteColor, fontSizeFactor: 0.8)),
+                      color: dark ? ecomColors.dark :  ecomColors.whiteColor, fontSizeFactor: 0.8)),
             ),
           ),
         )

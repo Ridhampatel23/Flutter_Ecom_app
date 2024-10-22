@@ -1,4 +1,4 @@
-import 'package:ecom_store/common/widgets/products/product_cards/product_cart_vertical.dart';
+import 'package:ecom_store/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
@@ -63,6 +63,8 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.all(ecomSizes.defaultSpace),
               child: Column(
                 children: [
+
+                  /// -- Promo Slider --
                   const ecomPromoSlider(
                     banners: [
                       ecomImages.newArrivals,
@@ -72,13 +74,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: ecomSizes.spaceBtwnSections ),
 
+                  ///-- Heading --
+                  ecomSectionHeading(title: "Popular Categories", onPressed: () {},),
+                  const SizedBox(height: ecomSizes.spaceBtwnItems),
+
                   ecomGridLayout(itemCount: 4, itemBuilder: (_ , index) => const ecomProductCardVertical()),
 
                 ],
               ),
             ),
-
-            ///
           ],
         ),
       ),

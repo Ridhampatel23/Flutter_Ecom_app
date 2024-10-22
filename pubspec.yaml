@@ -88,6 +88,7 @@ flutter:
     - assets/images/login_images/
     - assets/images/home_screeen_carousal_images/
     - assets/images/products_images/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
