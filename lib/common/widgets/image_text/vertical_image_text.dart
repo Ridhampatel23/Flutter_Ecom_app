@@ -10,7 +10,7 @@ class ecomVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = ecomColors.whiteColor,
-    this.bgColor = ecomColors.whiteColor,
+    this.bgColor,
     this.onTap,
   });
 
