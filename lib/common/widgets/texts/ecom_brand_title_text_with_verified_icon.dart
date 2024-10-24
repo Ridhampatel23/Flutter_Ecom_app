@@ -30,7 +30,7 @@ class ecomBranTitleWithVerifiedIcon extends StatelessWidget {
             ),
         ),
         const SizedBox(width: ecomSizes.xsmall),
-        Icon(Iconsax.verify5, color: iconColor, size: ecomSizes.xsmall),
+        Icon(Iconsax.verify5, color: iconColor, size: ecomSizes.medium),
 
       ],
     );
