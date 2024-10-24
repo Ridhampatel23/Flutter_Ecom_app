@@ -1,7 +1,6 @@
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 class ecomRoundedContainer extends StatelessWidget {
   const ecomRoundedContainer({super.key, this.width, this.height,this.radius = ecomSizes.cardRadiusLarge, this.child, this.showBorder = false, this.borderColor = ecomColors.borderPrimaryColor, this.bgColor = ecomColors.whiteColor, this.padding, this.margin});

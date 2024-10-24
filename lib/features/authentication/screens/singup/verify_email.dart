@@ -3,7 +3,6 @@ import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../utils/constants/images_strings.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -26,12 +25,12 @@ class VerifyEmailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(ecomSizes.defaultSpace),
+          padding: const EdgeInsets.all(ecomSizes.defaultSpace),
           child: Column(
             children: [
               ///Image
               Image(
-                image: AssetImage(ecomImages.EmailLogo),
+                image: const AssetImage(ecomImages.EmailLogo),
                 width: ecomHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(height: ecomSizes.spaceBtwnSections),

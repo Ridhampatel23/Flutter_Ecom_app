@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
 
             ///Body
             Padding(
-              padding: EdgeInsets.all(ecomSizes.defaultSpace),
+              padding: const EdgeInsets.all(ecomSizes.defaultSpace),
               child: Column(
                 children: [
 

@@ -1,6 +1,4 @@
-import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/image_text/vertical_image_text.dart';
 

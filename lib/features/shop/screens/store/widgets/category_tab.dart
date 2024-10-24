@@ -16,7 +16,7 @@ class ecomCategoryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       children: [ Padding(
         //We can only scroll the tab bar view but not the grid layout, the max it will reach
         // is upto first column only , the seocnd column will only be half visible, to overcome this

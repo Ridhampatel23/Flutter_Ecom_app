@@ -3,11 +3,9 @@ import 'package:ecom_store/features/shop/controllers/home_controller.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../../common/widgets/images/ecom_rounded_banner.dart';
-import '../../../../../utils/constants/images_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class ecomPromoSlider extends StatelessWidget {

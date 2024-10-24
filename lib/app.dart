@@ -14,7 +14,7 @@ class Main_app extends StatelessWidget {
       theme: mainAppTheme.light,
       darkTheme: mainAppTheme.dark,
       color: Colors.white,
-      home: OnBoardingScreen() ,
+      home: const OnBoardingScreen() ,
     );
   }
 }

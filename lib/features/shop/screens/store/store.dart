@@ -1,22 +1,16 @@
 import 'package:ecom_store/common/widgets/appbar/appbar.dart';
-import 'package:ecom_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecom_store/common/widgets/custom_shapes/containers/seach_container.dart';
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
 import 'package:ecom_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
 import 'package:ecom_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
-import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/appbar/tabbar.dart';
-import '../../../../common/widgets/brands/brand_showcase.dart';
-import '../../../../common/widgets/images/ecom_circular_image.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
-import '../../../../common/widgets/texts/ecom_brand_title_text_with_verified_icon.dart';
-import '../../../../utils/constants/enums.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -72,7 +66,7 @@ class StoreScreen extends StatelessWidget {
                             itemCount: 4,
                             mainAxisExtent: 80,
                             itemBuilder: (_, index) {
-                              return ecomBrandCard();
+                              return const ecomBrandCard();
                             }),
                       ],
                     ),
