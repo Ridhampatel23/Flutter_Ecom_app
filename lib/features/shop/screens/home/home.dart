@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
 
                         /// ---Caregories ---
                         ecomHomeCategories(),
-                        const SizedBox(height: ecomSizes.spaceBtwnSections),
+                        SizedBox(height: ecomSizes.spaceBtwnSections),
                       ],
                     ),
                   ),

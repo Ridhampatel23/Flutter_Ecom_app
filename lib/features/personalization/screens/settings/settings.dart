@@ -6,7 +6,6 @@ import 'package:ecom_store/features/personalization/screens/profile/profile.dart
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';

@@ -17,7 +17,7 @@ class ecomUserProfileTile extends StatelessWidget {
       leading: const ecomCircularIcon(icon: Iconsax.user, width: 50, height: 50),
       title: Text("User1234", style: Theme.of(context).textTheme.headlineSmall!.apply(color: ecomColors.whiteColor)),
       subtitle: Text("user123@gmail.com", style: Theme.of(context).textTheme.bodyMedium!.apply(color: ecomColors.whiteColor)),
-      trailing: IconButton(onPressed: onPressed, icon: Icon(Iconsax.edit, color: ecomColors.whiteColor,)),
+      trailing: IconButton(onPressed: onPressed, icon: const Icon(Iconsax.edit, color: ecomColors.whiteColor,)),
     );
   }
 }
