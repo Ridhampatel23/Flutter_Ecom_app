@@ -1,14 +1,15 @@
 import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:ecom_store/common/widgets/icons/ecom_circular_icon.dart';
 import 'package:ecom_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
-import 'package:ecom_store/utils/constants/colors.dart';
+import 'package:ecom_store/features/personalization/screens/profile/profile.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -39,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   ///User Profile Card
-                  const ecomUserProfileTile(),
+                  ecomUserProfileTile(onPressed: (() => Get.to(const ProfileScreen()))),
                   const SizedBox(height: ecomSizes.spaceBtwnSections),
                 ],
               ),
@@ -47,13 +48,13 @@ class SettingsScreen extends StatelessWidget {
 
             /// -- Body
             Padding(
-              padding: EdgeInsets.all(ecomSizes.defaultSpace),
+              padding: const EdgeInsets.all(ecomSizes.defaultSpace),
               child: Column(
                 children: [
                   ///Account Settings
                   const ecomSectionHeading(
                       title: "Account Settings", showActionButton: false),
-                  SizedBox(height: ecomSizes.spaceBtwnItems),
+                  const SizedBox(height: ecomSizes.spaceBtwnItems),
 
                   ecomSettingsMenuTile(
                       icon: Iconsax.safe_home,
@@ -110,7 +111,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   ecomSettingsMenuTile(
                     icon: Iconsax.security_user,
-                    title: "Safe Moda",
+                    title: "Safe Mode",
                     subTitle: "Search results safe for all ages",
                     trailing: Switch(value: false, onChanged: (value) {}),
                   ),

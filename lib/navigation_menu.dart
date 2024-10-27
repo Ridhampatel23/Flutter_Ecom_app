@@ -1,4 +1,4 @@
-import 'package:ecom_store/features/personalization/screens/settings.dart';
+import 'package:ecom_store/features/personalization/screens/settings/settings.dart';
 import 'package:ecom_store/features/shop/screens/home/home.dart';
 import 'package:ecom_store/features/shop/screens/store/store.dart';
 import 'package:ecom_store/features/shop/screens/wishlist/wishlist.dart';
