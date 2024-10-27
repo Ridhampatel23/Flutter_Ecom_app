@@ -33,7 +33,7 @@ class ecomProductImageSlider extends StatelessWidget {
                 height: 400,
                 child: Padding(
                     padding:
-                    EdgeInsets.all(ecomSizes.productImageRadius),
+                    EdgeInsets.all(ecomSizes.productImageRadius * 2),
                     child: Center(
                         child: Image(
                             image: AssetImage(

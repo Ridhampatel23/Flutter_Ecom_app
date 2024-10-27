@@ -83,7 +83,7 @@ class ecomProductCardVertical extends StatelessWidget {
                   ecomProductTitleText(
                       title: 'Nike Dunk Green', smallSize: true),
                   SizedBox(height: ecomSizes.spaceBtwnItems / 2),
-                  ecomBranTitleWithVerifiedIcon(title: 'Nike'),
+                  ecomBrandTitleWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),

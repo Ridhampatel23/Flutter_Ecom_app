@@ -6,7 +6,7 @@ import '../../../utils/constants/sizes.dart';
 class ecomCircularImage extends StatelessWidget {
   const ecomCircularImage({
     super.key,
-    this.fit = BoxFit.cover,
+    this.fit = BoxFit.contain,
     required this.image,
     this.isNetworkImage = false,
     this.overlayColor,

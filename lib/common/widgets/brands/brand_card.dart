@@ -48,7 +48,7 @@ class ecomBrandCard extends StatelessWidget {
                 crossAxisAlignment:
                 CrossAxisAlignment.start,
                 children: [
-                  const ecomBranTitleWithVerifiedIcon(
+                  const ecomBrandTitleWithVerifiedIcon(
                       title: 'Nike',
                       brandTextSize: TextSizes.large),
                   Text(

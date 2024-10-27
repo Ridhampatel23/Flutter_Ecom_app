@@ -4,7 +4,7 @@ import '../../../utils/constants/sizes.dart';
 
 class ecomRoundedBanners extends StatelessWidget {
   const ecomRoundedBanners({
-    super.key, this.width = double.infinity, this.height, required this.imageUrl, this.applyImageRadius = true, this.border, this.bgColor, this.fit = BoxFit.fill, this.padding, this.isNetworkImage = false, this.onPressed, this.borderRadius = ecomSizes.medium,
+    super.key, this.width = double.infinity, this.height, required this.imageUrl, this.applyImageRadius = true, this.border, this.bgColor, this.fit = BoxFit.contain, this.padding, this.isNetworkImage = false, this.onPressed, this.borderRadius = ecomSizes.medium,
   });
 
   final double? width, height;

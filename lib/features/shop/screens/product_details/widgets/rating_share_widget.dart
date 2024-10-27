@@ -16,8 +16,8 @@ class ecomRatingsAndShare extends StatelessWidget {
         ///Rating
         Row(
           children: [
-            Icon(Iconsax.star5, color: Colors.amber, size: 24),
-            SizedBox(width: ecomSizes.spaceBtwnItems / 2),
+            const Icon(Iconsax.star5, color: Colors.amber, size: 24),
+            const SizedBox(width: ecomSizes.spaceBtwnItems / 2),
             Text.rich(TextSpan(
                 children: [
                   TextSpan(text: "5.0", style: Theme.of(context).textTheme.bodyLarge),

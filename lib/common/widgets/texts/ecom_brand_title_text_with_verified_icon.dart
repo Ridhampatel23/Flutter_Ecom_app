@@ -6,8 +6,8 @@ import 'package:iconsax/iconsax.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 
-class ecomBranTitleWithVerifiedIcon extends StatelessWidget {
-  const ecomBranTitleWithVerifiedIcon({
+class ecomBrandTitleWithVerifiedIcon extends StatelessWidget {
+  const ecomBrandTitleWithVerifiedIcon({
     super.key, required this.title, this.maxLines = 1, this.textColor , this.iconColor = ecomColors.primaryColor, this.textAlign = TextAlign.center, this.brandTextSize = TextSizes.small,
   });
 
@@ -21,13 +21,11 @@ class ecomBranTitleWithVerifiedIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Flexible(
-            child: ecomBrandTitleText(title: title,
-            color: textColor,
-              maxLines: maxLines,
-              textAlign: textAlign,
-              brandTextSize: brandTextSize,
-            ),
+        ecomBrandTitleText(title: title,
+        color: textColor,
+          maxLines: maxLines,
+          textAlign: textAlign,
+          brandTextSize: brandTextSize,
         ),
         const SizedBox(width: ecomSizes.xsmall),
         Icon(Iconsax.verify5, color: iconColor, size: ecomSizes.medium),
