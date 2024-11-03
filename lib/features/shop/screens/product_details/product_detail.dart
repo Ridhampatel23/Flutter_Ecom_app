@@ -4,9 +4,11 @@ import 'package:ecom_store/features/shop/screens/product_details/widgets/product
 import 'package:ecom_store/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
+import 'package:ecom_store/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetailPage extends StatelessWidget {
@@ -62,7 +64,9 @@ class ProductDetailPage extends StatelessWidget {
                 ///  -- Reviews
                 const Divider(),
                 const SizedBox(height: ecomSizes.spaceBtwnItems),
-                ecomSectionHeading(title: "Reviews (199)", onPressed: (){}),
+                ecomSectionHeading(title: "Reviews (199)", onPressed: () => Get.to(() => const ProductReviewsScreen())),
+                const SizedBox(height: ecomSizes.spaceBtwnSections),
+
               ],
             ),
             )

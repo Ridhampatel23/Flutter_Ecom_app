@@ -2,6 +2,7 @@ import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:ecom_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/personalization/screens/address/address.dart';
 import 'package:ecom_store/features/personalization/screens/profile/profile.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: "My Cart",
                       subTitle: "Add, Remove products and move to Checkout",
-                      onTap: () {}),
+                      onTap: () => Get.to(() => const UserAddressScreen())),
                   ecomSettingsMenuTile(
                       icon: Iconsax.bag_tick,
                       title: "My Orders",
