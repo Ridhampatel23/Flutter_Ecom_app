@@ -40,7 +40,7 @@ dependencies:
   url_launcher: ^6.1.12
   flutter_native_splash: ^2.3.2
   smooth_page_indicator: ^1.2.0+3
-  carousel_slider: ^5.0.0
+
   #Icons
   iconsax: ^0.0.8
   # The following adds the Cupertino Icons font to your application.
@@ -50,6 +50,18 @@ dependencies:
   # State Management
   get: ^4.6.5
   get_storage: ^2.1.1
+
+
+  # Product Specific
+  readmore: ^2.2.0
+  carousel_slider: ^5.0.0
+
+
+
+
+
+
+  #-------------------- ./ Packages End --------------#
 
 
 dev_dependencies:

@@ -42,7 +42,7 @@ class ecomProductImageSlider extends StatelessWidget {
             ///Image Slider
             Positioned(
               right: 0,
-              bottom: 20,
+              bottom: 30,
               left: ecomSizes.defaultSpace,
               child: SizedBox(
                 height: 80,

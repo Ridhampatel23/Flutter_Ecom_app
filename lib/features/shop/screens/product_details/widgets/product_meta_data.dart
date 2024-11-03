@@ -77,7 +77,7 @@ class ecomProductMetaData extends StatelessWidget {
               width: 32,
               height: 32,
             ),
-             const SizedBox(width: ecomSizes.spaceBtwnItems),
+             SizedBox(width: ecomSizes.spaceBtwnItems),
              ecomBrandTitleWithVerifiedIcon(
               title: "Nike",
               brandTextSize: TextSizes.medium,
