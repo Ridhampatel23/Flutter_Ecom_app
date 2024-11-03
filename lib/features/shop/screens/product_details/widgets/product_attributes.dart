@@ -19,7 +19,7 @@ class ecomProductAttributes extends StatelessWidget {
       children: [
         /// -- Selected Attribute Pricing and Description
         ecomRoundedContainer(
-          padding: EdgeInsets.all(ecomSizes.medium),
+          padding: const EdgeInsets.all(ecomSizes.medium),
           bgColor: dark ? ecomColors.darkerGreyColor : ecomColors.greyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,7 @@ class ecomProductAttributes extends StatelessWidget {
                 children: [
                   const ecomSectionHeading(
                       title: "Variation", showActionButton: false),
-                  SizedBox(width: ecomSizes.spaceBtwnItems),
+                  const SizedBox(width: ecomSizes.spaceBtwnItems),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

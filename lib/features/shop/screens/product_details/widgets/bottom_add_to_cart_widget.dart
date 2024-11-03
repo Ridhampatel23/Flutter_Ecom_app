@@ -12,10 +12,10 @@ class ecomBottonAddToCart extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: ecomSizes.defaultSpace, vertical: ecomSizes.defaultSpace / 2),
+      padding: const EdgeInsets.symmetric(horizontal: ecomSizes.defaultSpace, vertical: ecomSizes.defaultSpace / 2),
       decoration: BoxDecoration(
         color: dark ? ecomColors.darkerGreyColor : ecomColors.light,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(ecomSizes.cardRadiusLarge),
           topLeft: Radius.circular(ecomSizes.cardRadiusLarge),
         )
@@ -43,12 +43,12 @@ class ecomBottonAddToCart extends StatelessWidget {
 
             ],
           ),
-          ElevatedButton(onPressed: () {}, child: Text("Add to Cart"),
+          ElevatedButton(onPressed: () {},
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(ecomSizes.medium),
+            padding: const EdgeInsets.all(ecomSizes.medium),
             backgroundColor: ecomColors.blackColor,
-            side: BorderSide(color: Colors.black)
-          ),
+            side: const BorderSide(color: Colors.black)
+          ), child: const Text("Add to Cart"),
           )
         ],
       ),
