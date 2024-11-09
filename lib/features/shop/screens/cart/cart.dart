@@ -1,6 +1,10 @@
 import 'package:ecom_store/common/widgets/products/product_cards/product_price.dart';
+import 'package:ecom_store/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:ecom_store/features/shop/screens/checkout/checkout.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
@@ -21,38 +25,13 @@ class CartScreen extends StatelessWidget {
       appBar: ecomAppBar(
         title: Text("Cart", style: Theme.of(context).textTheme.headlineSmall),
       ),
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(ecomSizes.defaultSpace),
-        child: ListView.separated(
-          shrinkWrap: true,
-          separatorBuilder: (_, __) =>
-              const SizedBox(height: ecomSizes.spaceBtwnSections),
-          itemCount: 11,
-          itemBuilder: (_, index) => Column(
-            children: [
-              const ecomCartItem(),
-              const SizedBox(height: ecomSizes.spaceBtwnItems),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      const SizedBox(width: 70),
-
-                      /// Add Remove Buttons
-                      ecomProductQuantityWithAddRemoveButtons(),
-                    ],
-                  ),
-                  ecomProductPriceText(price: "256"),
-                ],
-              ),
-            ],
-          ),
-        ),
+        child: ecomCartItems(),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(ecomSizes.defaultSpace),
-        child: ElevatedButton(onPressed: () {}, child: const Text("Checkout \$256.0")),
+        child: ElevatedButton(onPressed: () => Get.to(() => const CheckoutScreen()), child: const Text("Checkout \$256.0")),
       ),
     );
   }
