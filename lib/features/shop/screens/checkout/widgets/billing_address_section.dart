@@ -17,8 +17,8 @@ class ecomBillingAddressSection extends StatelessWidget {
 
         Row(
           children: [
-          Icon(Icons.phone, color: ecomColors.greyColor, size: 16),
-            SizedBox(width: ecomSizes.spaceBtwnItems),
+          const Icon(Icons.phone, color: ecomColors.greyColor, size: 16),
+            const SizedBox(width: ecomSizes.spaceBtwnItems),
             Text("123-456-7890", style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
@@ -26,8 +26,8 @@ class ecomBillingAddressSection extends StatelessWidget {
 
         Row(
           children: [
-          Icon(Icons.location_history, color: ecomColors.greyColor, size: 16),
-            SizedBox(width: ecomSizes.spaceBtwnItems),
+          const Icon(Icons.location_history, color: ecomColors.greyColor, size: 16),
+            const SizedBox(width: ecomSizes.spaceBtwnItems),
             Expanded(child: Text("98000 Reseda Blvd, 91324, USA", style: Theme.of(context).textTheme.bodyMedium, softWrap: true)),
           ],
         ),

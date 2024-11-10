@@ -1,4 +1,5 @@
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/shop/screens/cart/cart.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -45,7 +46,8 @@ class ProductDetailPage extends StatelessWidget {
                 const SizedBox(height: ecomSizes.spaceBtwnSections),
 
                 ///  -- Checkout Button
-                SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: const Text("Checkout"))),
+                SizedBox(height: 50, width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const CartScreen()), child: const Text("Checkout"))),
+                const SizedBox(height: ecomSizes.spaceBtwnSections),
 
                 ///  -- Description
                 const ecomSectionHeading(title: "Description", showActionButton: false),

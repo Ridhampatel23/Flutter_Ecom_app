@@ -6,7 +6,7 @@ import '../../../../../common/widgets/products/product_cards/product_price.dart'
 import '../../../../../utils/constants/sizes.dart';
 
 class ecomCartItems extends StatelessWidget {
-  const ecomCartItems({super.key, this.showAddRemoveButtons = true});
+  const  ecomCartItems({super.key, this.showAddRemoveButtons = true});
 
   final bool  showAddRemoveButtons;
 
@@ -16,7 +16,7 @@ class ecomCartItems extends StatelessWidget {
       shrinkWrap: true,
       separatorBuilder: (_, __) =>
       const SizedBox(height: ecomSizes.spaceBtwnSections),
-      itemCount: 2,
+      itemCount: 5,
       itemBuilder: (_, index) => Column(
         children: [
           const ecomCartItem(),

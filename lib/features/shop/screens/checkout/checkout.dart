@@ -11,7 +11,6 @@ import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/cart/coupon_widget.dart';
@@ -24,11 +23,11 @@ class CheckoutScreen extends StatelessWidget {
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: ecomAppBar(
+        showBackArrow: true,
         title: Text("Order Review",
             style: Theme.of(context).textTheme.headlineSmall),
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.all(ecomSizes.defaultSpace),
           child: Column(
@@ -43,7 +42,7 @@ class CheckoutScreen extends StatelessWidget {
 
               /// -- Billing Section
               ecomRoundedContainer(
-                padding: EdgeInsets.all(ecomSizes.medium),
+                padding: const EdgeInsets.all(ecomSizes.medium),
                 showBorder: true,
                 bgColor: dark ? Colors.black : ecomColors.whiteColor,
                 child: const Column(
@@ -71,16 +70,19 @@ class CheckoutScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(ecomSizes.defaultSpace),
-        child: ElevatedButton(
-            onPressed: () => Get.to(
-                  () => SuccessScreen(
-                    image: ecomImages.onBoardingImage3,
-                    title: "Payment Success",
-                    subTitle: "Your Item will be shipped soon!",
-                    onPressed: () => Get.offAll(() => const NavigationMenu()),
+        child: SizedBox(
+          height: 50,
+          child: ElevatedButton(
+              onPressed: () => Get.to(
+                    () => SuccessScreen(
+                      image: ecomImages.onBoardingImage3,
+                      title: "Payment Success",
+                      subTitle: "Your Item will be shipped soon!",
+                      onPressed: () => Get.offAll(() => const NavigationMenu()),
+                    ),
                   ),
-                ),
-            child: const Text("Checkout \$256.0")),
+              child: const Text("Checkout \$256.0")),
+        ),
       ),
     );
   }

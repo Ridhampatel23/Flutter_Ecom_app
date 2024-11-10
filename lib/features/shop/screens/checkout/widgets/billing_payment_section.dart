@@ -22,10 +22,10 @@ class ecomBillingPaymentSection extends StatelessWidget {
               width: 60,
               height: 35,
               bgColor: dark ? ecomColors.light : ecomColors.whiteColor,
-              padding: EdgeInsets.all(ecomSizes.small),
+              padding: const EdgeInsets.all(ecomSizes.small),
               child: const Image(image: AssetImage(ecomImages.GoogleLogo), fit: BoxFit.contain),
             ),
-            const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
+            const SizedBox(width: ecomSizes.spaceBtwnItems / 2),
             Text("Google Pay", style: Theme.of(context).textTheme.bodyLarge),
           ],
         )

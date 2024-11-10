@@ -41,13 +41,13 @@ class ecomCartItem extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                        text: "Color",
+                        text: "Color: ",
                         style: Theme.of(context).textTheme.bodySmall),
                     TextSpan(
-                        text: "Green",
+                        text: "Green ",
                         style: Theme.of(context).textTheme.bodyLarge),
                     TextSpan(
-                        text: "Size",
+                        text: "Size: ",
                         style: Theme.of(context).textTheme.bodySmall),
                     TextSpan(
                         text: "US 9.5",

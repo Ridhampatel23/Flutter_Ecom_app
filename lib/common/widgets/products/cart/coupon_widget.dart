@@ -42,13 +42,13 @@ class ecomCouponCode extends StatelessWidget {
               width: 80,
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text("Apply"),
                 //we use style from to keep all the other styles but change a few
                 style: ElevatedButton.styleFrom(
                   foregroundColor: dark ? ecomColors.whiteColor.withOpacity(0.5) : ecomColors.dark.withOpacity(0.5),
                   backgroundColor: ecomColors.greyColor.withOpacity(0.2),
                   side: BorderSide(color: ecomColors.greyColor.withOpacity(0.1)),
                 ),
+                child: const Text("Apply"),
               ),
             ),
           ],
