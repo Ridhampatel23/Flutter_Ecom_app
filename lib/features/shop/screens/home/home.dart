@@ -1,10 +1,13 @@
 import 'package:ecom_store/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:ecom_store/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/seach_container.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
@@ -49,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: ecomSizes.spaceBtwnItems),
 
-                        /// ---Caregories ---
+                        /// ---Categories ---
                         ecomHomeCategories(),
                         SizedBox(height: ecomSizes.spaceBtwnSections),
                       ],
@@ -76,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: ecomSizes.spaceBtwnSections ),
 
                   ///-- Heading --
-                  ecomSectionHeading(title: "Popular Categories", onPressed: () {},),
+                  ecomSectionHeading(title: "Popular Products", onPressed: () => Get.to(() => const AllProductsScreen())),
                   const SizedBox(height: ecomSizes.spaceBtwnItems),
 
                   ecomGridLayout(itemCount: 4, itemBuilder: (_ , index) => const ecomProductCardVertical()),

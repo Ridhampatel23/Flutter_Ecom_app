@@ -29,7 +29,9 @@ class ecomProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [ecomShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(ecomSizes.productImageRadius),
-          color: dark ? ecomColors.greyColor.withOpacity(0.1) : ecomColors.whiteColor,
+          color: dark
+              ? ecomColors.greyColor.withOpacity(0.1)
+              : ecomColors.whiteColor,
         ),
         child: Column(
           children: [
@@ -64,10 +66,11 @@ class ecomProductCardVertical extends StatelessWidget {
 
                   /// Wishlist
                   const Positioned(
-                      top: 0,
-                      right: 0,
-                      child: ecomCircularIcon(
-                          icon: Iconsax.heart5, color: Colors.red))
+                    top: 0,
+                    right: 0,
+                    child: ecomCircularIcon(
+                        icon: Iconsax.heart5, color: Colors.red),
+                  ),
                 ],
               ),
             ),
@@ -97,6 +100,8 @@ class ecomProductCardVertical extends StatelessWidget {
                     child: ecomProductPriceText(
                       price: '35.0',
                     )),
+
+                /// -- Add to Cart Button --
                 Container(
                   decoration: const BoxDecoration(
                       color: ecomColors.dark,
@@ -106,12 +111,11 @@ class ecomProductCardVertical extends StatelessWidget {
                             Radius.circular(ecomSizes.cardRadiusMedium),
                       )),
 
-                  /// -- Add to Cart Button --
                   child: const SizedBox(
                       width: ecomSizes.iconLarge * 1.2,
                       height: ecomSizes.iconLarge * 1.2,
                       child: Icon(Iconsax.add, color: ecomColors.whiteColor)),
-                )
+                ),
               ],
             )
           ],
@@ -120,4 +124,3 @@ class ecomProductCardVertical extends StatelessWidget {
     );
   }
 }
-

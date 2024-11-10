@@ -3,11 +3,15 @@ import 'package:ecom_store/common/widgets/custom_shapes/containers/seach_contain
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
 import 'package:ecom_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/shop/screens/brand/all_brands.dart';
+import 'package:ecom_store/features/shop/screens/brand/brand_products.dart';
 import 'package:ecom_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/appbar/tabbar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -57,7 +61,7 @@ class StoreScreen extends StatelessWidget {
 
                         /// -- Featured Brands
                         ecomSectionHeading(
-                            title: "Featured Brands", onPressed: () {}),
+                            title: "Featured Brands", onPressed: () => Get.to(() => const AllBrandsScreen())),
                         const SizedBox(
                             height: ecomSizes.spaceBtwnSections / 1.5),
 
@@ -66,7 +70,7 @@ class StoreScreen extends StatelessWidget {
                             itemCount: 4,
                             mainAxisExtent: 80,
                             itemBuilder: (_, index) {
-                              return const ecomBrandCard();
+                              return ecomBrandCard(onTap: () => Get.to(() => const BrandProducts()));
                             }),
                       ],
                     ),
