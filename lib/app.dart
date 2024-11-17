@@ -1,4 +1,5 @@
 import 'package:ecom_store/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,12 @@ class Main_app extends StatelessWidget {
       theme: mainAppTheme.light,
       darkTheme: mainAppTheme.dark,
       color: Colors.white,
-      home: const OnBoardingScreen() ,
+
+      /// Show Loader or Circular progress indicator while Authentication Repository is decing the relevant screen to be shown.
+      home: const Scaffold(
+        backgroundColor: ecomColors.primaryColor,
+        body: Center(child: CircularProgressIndicator(color: ecomColors.whiteColor),),
+      ),
     );
   }
 }

@@ -40,6 +40,8 @@ dependencies:
   url_launcher: ^6.1.12
   flutter_native_splash: ^2.3.2
   smooth_page_indicator: ^1.2.0+3
+  lottie: ^2.7.0
+  connectivity_plus: ^5.0.1
 
   #Icons
   iconsax: ^0.0.8
@@ -105,6 +107,7 @@ flutter:
     - assets/images/login_images/
     - assets/images/home_screeen_carousal_images/
     - assets/images/products_images/
+    - assets/images/loading_animations/
     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see

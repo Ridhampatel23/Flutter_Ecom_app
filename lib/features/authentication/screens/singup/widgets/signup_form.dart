@@ -1,5 +1,7 @@
+import 'package:ecom_store/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:ecom_store/features/authentication/screens/singup/widgets/terms_and_conditions.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
+import 'package:ecom_store/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,8 +15,10 @@ class ecomSignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignupController());
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Form(
+      key: controller.signupFormKey,
       child: Column(
         children: [
           ///First and Last Name
@@ -22,6 +26,8 @@ class ecomSignupForm extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
+                  validator: (value) => ecomValidator.validateEmptyText("First Name", value),
+                  controller: controller.firstName,
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: "First Name", prefixIcon: Icon(Iconsax.user)),
@@ -30,6 +36,8 @@ class ecomSignupForm extends StatelessWidget {
               const SizedBox(width: ecomSizes.spaceBtwnInputFields),
               Expanded(
                 child: TextFormField(
+                  validator: (value) => ecomValidator.validateEmptyText("Last Name", value),
+                  controller: controller.lastName,
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: "Last Name", prefixIcon: Icon(Iconsax.user)),
@@ -41,6 +49,8 @@ class ecomSignupForm extends StatelessWidget {
 
           ///Username
           TextFormField(
+            validator: (value) => ecomValidator.validateEmptyText("Username", value),
+            controller: controller.userName,
             decoration: const InputDecoration(
                 labelText: "Username", prefixIcon: Icon(Iconsax.user_edit)),
           ),
@@ -48,6 +58,8 @@ class ecomSignupForm extends StatelessWidget {
 
           ///Email
           TextFormField(
+            validator: (value) => ecomValidator.validateEmail(value),
+            controller: controller.email,
             decoration: const InputDecoration(
                 labelText: "Email", prefixIcon: Icon(Iconsax.direct)),
           ),
@@ -55,6 +67,8 @@ class ecomSignupForm extends StatelessWidget {
 
           ///PhoneNumber
           TextFormField(
+            validator: (value) => ecomValidator.validatePhoneNumber(value),
+            controller: controller.phoneNumber,
             decoration: const InputDecoration(
                 labelText: "Phone Number", prefixIcon: Icon(Iconsax.call)),
           ),
@@ -62,6 +76,8 @@ class ecomSignupForm extends StatelessWidget {
 
           ///Password
           TextFormField(
+            validator: (value) => ecomValidator.validatePassword(value),
+            controller: controller.passWord,
             decoration: const InputDecoration(
               labelText: "Password",
               prefixIcon: Icon(Iconsax.password_check),
@@ -79,7 +95,7 @@ class ecomSignupForm extends StatelessWidget {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: () => Get.to(() => const VerifyEmailScreen()),
+              onPressed: () => controller.signup(),
               child: const Text("Create Account"),
             ),
           )
