@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widgets/image_text/vertical_image_text.dart';
+import '../../../../../utils/constants/images_strings.dart';
 
 class ecomHomeCategories extends StatelessWidget {
   const ecomHomeCategories({
@@ -20,7 +21,7 @@ class ecomHomeCategories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           //The padding will add space between all the circular contianers.
-          return ecomVerticalImageText(image: " ", title: 'Category', onTap: () => Get.to(() => const SubCategoriesScreen()));
+          return ecomVerticalImageText(image: ecomImages.clothingIcon, title: 'Category', onTap: () => Get.to(() => const SubCategoriesScreen()));
         },
       ),
     );

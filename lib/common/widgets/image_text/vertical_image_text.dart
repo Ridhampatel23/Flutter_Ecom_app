@@ -41,7 +41,7 @@ class ecomVerticalImageText extends StatelessWidget {
               child: Center(
                 child: Image(
                     image: AssetImage(image),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                     color: ecomHelperFunctions.isDarkMode(context) ? ecomColors.blackColor : ecomColors.whiteColor),
               ),
             ),

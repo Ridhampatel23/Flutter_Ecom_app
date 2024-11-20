@@ -75,13 +75,16 @@ class ecomSignupForm extends StatelessWidget {
           const SizedBox(height: ecomSizes.spaceBtwnInputFields),
 
           ///Password
-          TextFormField(
-            validator: (value) => ecomValidator.validatePassword(value),
-            controller: controller.passWord,
-            decoration: const InputDecoration(
-              labelText: "Password",
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          Obx( // An Obx widget observes the changes and redraws the entire widget when anything is redrawn
+            () =>  TextFormField(
+              validator: (value) => ecomValidator.validatePassword(value),
+              controller: controller.password,
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                labelText: "Password",
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(icon: Icon(controller.hidePassword.value ?  Iconsax.eye_slash : Iconsax.eye), onPressed: () => controller.hidePassword.value = !controller.hidePassword.value),
+              ),
             ),
           ),
           const SizedBox(height: ecomSizes.spaceBtwnSections),

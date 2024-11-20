@@ -1,3 +1,4 @@
+import 'package:ecom_store/bindings/general_bindings.dart';
 import 'package:ecom_store/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/theme/theme.dart';
@@ -14,6 +15,7 @@ class Main_app extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: mainAppTheme.light,
       darkTheme: mainAppTheme.dark,
+      initialBinding: GeneralBindings(),
       color: Colors.white,
 
       /// Show Loader or Circular progress indicator while Authentication Repository is decing the relevant screen to be shown.
