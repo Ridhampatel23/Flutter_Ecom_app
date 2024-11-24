@@ -54,6 +54,7 @@ class SignupController extends GetxController {
           message:
               'In order to create an account, you must read and accept the Privacy Policy and Terms of Use.',
         );
+        ecomFullScreenLoader.stopLoading();
         return;
       }
       // Register the userCredentials in the Firebase Authentication and Save userCredentials data in the Firebase

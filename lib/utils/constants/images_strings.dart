@@ -37,6 +37,6 @@ class ecomImages{
   static const String clothingIcon  = "assets/icons/clothingIcon.png";
 
   // -- loading animations
-  static const String decoderAnimation = "assets/images/loading_animations/Decoder.mp4";
+  static const String decoderAnimation = "assets/images/loading_animations/searching_file.json";
 
 }

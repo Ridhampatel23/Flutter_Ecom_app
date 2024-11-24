@@ -1,3 +1,4 @@
+import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -37,7 +38,10 @@ class ecomAnimationLoaderWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(animation, height: height ?? MediaQuery.of(context).size.height * 0.5, width: width), // Display Lottie animation
+          // Please note : Lottie only uses JSON files and would not accept png or mp4 files
+          // Also, if it throws a render flex error, try removing the height and width or setting a default height
+          // which should be like 60 - 80% of screen height or width.
+          Lottie.asset(animation), // Display Lottie animation
           const SizedBox(height: ecomSizes.defaultSpace),
           Text(
             text,
