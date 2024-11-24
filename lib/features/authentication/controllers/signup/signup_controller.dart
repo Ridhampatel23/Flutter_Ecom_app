@@ -20,11 +20,9 @@ class SignupController extends GetxController {
   final lastName = TextEditingController(); //Controller for last name input
   final firstName = TextEditingController(); //Controller for first name input
   final userName = TextEditingController(); //Controller for user name input
-  final phoneNumber =
-      TextEditingController(); //Controller for phone number input
+  final phoneNumber = TextEditingController(); //Controller for phone number input
   final password = TextEditingController(); //Controller for password input
-  GlobalKey<FormState> signupFormKey =
-      GlobalKey<FormState>(); // Form Key for form validation
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>(); // Form Key for form validation
 
   /// -- Signup
   Future<void> signup() async {
@@ -58,7 +56,7 @@ class SignupController extends GetxController {
         return;
       }
       // Register the userCredentials in the Firebase Authentication and Save userCredentials data in the Firebase
-      final userCredentials = await AuthenticationRepository.instace.registerWithEmailandPassword(
+      final userCredentials = await AuthenticationRepository.instance.registerWithEmailandPassword(
           email.text.trim(), password.text.trim());
 
       // Save Authenticated userCredentials data in the Firebase Firestore
@@ -81,7 +79,7 @@ class SignupController extends GetxController {
       ecomLoaders.successSnackBar(title: "Congratulations", message: "Your Account has been created! Verify email to continue.");
 
       //Verify Email Screen
-      Get.to(()=> const VerifyEmailScreen());
+      Get.to(()=>  VerifyEmailScreen(email: email.text.trim()));
 
     } catch (e) {
 

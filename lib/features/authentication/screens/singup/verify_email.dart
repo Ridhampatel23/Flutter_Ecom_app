@@ -1,4 +1,6 @@
 import 'package:ecom_store/common/widgets/success_screen/success_screen.dart';
+import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecom_store/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,17 +11,23 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String ? email;
 
   @override
   Widget build(BuildContext context) {
+    //Get.put creates and instance while Get.find finds the current instance, since
+    // we want to send a verification email, we create a new instance
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: //Actions always start from the right side of the screen
             [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -40,7 +48,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: ecomSizes.spaceBtwnItems),
-              Text("support@gmail.com",
+              Text(email ?? "",
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center),
               const SizedBox(height: ecomSizes.spaceBtwnItems),
@@ -55,20 +63,14 @@ class VerifyEmailScreen extends StatelessWidget {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => SuccessScreen(
-                            image: ecomImages.AccountCreated,
-                            title: 'Your Account Has Been Created! ',
-                            subTitle:
-                                "Welcome to your Ultimate Shopping Destination. Your Account is Created. Unleash the Joy of Seamless Online Shopping",
-                            onPressed: () => Get.to(() => const LoginScreen()),
-                          )),
+                      onPressed: () => controller.checkEmailVerificationStatus(),
                       child: const Text("Continue"))),
               const SizedBox(height: ecomSizes.spaceBtwnItems),
               SizedBox(
                   height: 50,
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {}, child: const Text("Resend Email"))),
+                      onPressed: () => controller.sendEmailVerification(), child: const Text("Resend Email"))),
             ],
           ),
         ),
