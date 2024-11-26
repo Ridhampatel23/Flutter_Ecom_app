@@ -34,7 +34,7 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
-        Get.offAll(() => const LoginScreen());
+        Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
@@ -50,9 +50,28 @@ class AuthenticationRepository extends GetxController {
   }
   /* ------------------------ Email and Password sign-in ------------------*/
 
-  /// [EmailAuthentication] Sign In
+  /// [EmailAuthentication] Log In
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw ecomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw ecomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const ecomFormatException();
+    } on PlatformException catch (e) {
+      throw ecomPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
+
+
   /// [EmailAuthentication] Register
-  Future<UserCredential> registerWithEmailandPassword(
+  Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
     try {
       return await _auth.createUserWithEmailAndPassword(

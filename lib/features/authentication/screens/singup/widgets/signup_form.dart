@@ -75,7 +75,8 @@ class ecomSignupForm extends StatelessWidget {
           const SizedBox(height: ecomSizes.spaceBtwnInputFields),
 
           ///Password
-          Obx( // An Obx widget observes the changes and redraws the entire widget when anything is redrawn
+          Obx( // An Obx widget observes the changes and redraws only the widget instead of redrawing the entire screen
+            // when setState is used.
             () =>  TextFormField(
               validator: (value) => ecomValidator.validatePassword(value),
               controller: controller.password,

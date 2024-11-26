@@ -56,7 +56,7 @@ class SignupController extends GetxController {
         return;
       }
       // Register the userCredentials in the Firebase Authentication and Save userCredentials data in the Firebase
-      final userCredentials = await AuthenticationRepository.instance.registerWithEmailandPassword(
+      final userCredentials = await AuthenticationRepository.instance.registerWithEmailAndPassword(
           email.text.trim(), password.text.trim());
 
       // Save Authenticated userCredentials data in the Firebase Firestore

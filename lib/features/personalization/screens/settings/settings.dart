@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -42,7 +43,8 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   ///User Profile Card
-                  ecomUserProfileTile(onPressed: (() => Get.to(const ProfileScreen()))),
+                  ecomUserProfileTile(
+                      onPressed: (() => Get.to(const ProfileScreen()))),
                   const SizedBox(height: ecomSizes.spaceBtwnSections),
                 ],
               ),
@@ -64,16 +66,16 @@ class SettingsScreen extends StatelessWidget {
                       subTitle: "Change Shipping / Delivery Address",
                       onTap: () => Get.to(() => const UserAddressScreen())),
                   ecomSettingsMenuTile(
-                      icon: Iconsax.shopping_cart,
-                      title: "My Cart",
-                      subTitle: "Add, Remove products and move to Checkout",
+                    icon: Iconsax.shopping_cart,
+                    title: "My Cart",
+                    subTitle: "Add, Remove products and move to Checkout",
                     onTap: () => Get.to(() => const CartScreen()),
-                      ),
+                  ),
                   ecomSettingsMenuTile(
-                      icon: Iconsax.bag_tick,
-                      title: "My Orders",
-                      subTitle: "Check your In-progress / Completed orders",
-                      onTap: () => Get.to(() => const OrderScreen()),
+                    icon: Iconsax.bag_tick,
+                    title: "My Orders",
+                    subTitle: "Check your In-progress / Completed orders",
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   ecomSettingsMenuTile(
                       icon: Iconsax.bank,
@@ -129,7 +131,11 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     height: 60,
-                    child: OutlinedButton(onPressed: () {}, child: const Text("Logout")),
+                    child: OutlinedButton(
+                        onPressed: () async {
+                          await AuthenticationRepository.instance.logout();
+                        },
+                        child: const Text("Logout")),
                   ),
                   const SizedBox(height: ecomSizes.spaceBtwnSections * 2.5),
                 ],
