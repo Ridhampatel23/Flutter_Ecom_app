@@ -1,7 +1,5 @@
-import 'package:ecom_store/common/widgets/success_screen/success_screen.dart';
 import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom_store/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

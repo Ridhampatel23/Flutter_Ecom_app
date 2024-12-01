@@ -16,7 +16,7 @@ class ecomSortableProducts extends StatelessWidget {
       children: [
         /// Drop Down
         DropdownButtonFormField(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             prefixIcon: Icon(Iconsax.sort),
           ),
           items: [
@@ -34,7 +34,7 @@ class ecomSortableProducts extends StatelessWidget {
         const SizedBox(height: ecomSizes.spaceBtwnSections),
 
         /// Products
-        ecomGridLayout(itemCount: 5, itemBuilder: (_, index) => ecomProductCardVertical()),
+        ecomGridLayout(itemCount: 5, itemBuilder: (_, index) => const ecomProductCardVertical()),
       ],
     );
   }

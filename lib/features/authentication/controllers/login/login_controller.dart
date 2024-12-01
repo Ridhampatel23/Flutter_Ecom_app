@@ -1,4 +1,3 @@
-import 'package:ecom_store/common/widgets/loaders/animation_loader.dart';
 import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom_store/features/authentication/controllers/signup/network_manager.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';

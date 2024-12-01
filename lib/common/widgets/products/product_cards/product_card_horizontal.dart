@@ -29,7 +29,7 @@ class ecomProductCardHorizontal extends StatelessWidget {
         ///Thumbnail
         ecomRoundedContainer(
           height: 120,
-          padding: EdgeInsets.all(ecomSizes.small),
+          padding: const EdgeInsets.all(ecomSizes.small),
           bgColor: dark ? ecomColors.dark : ecomColors.light,
           child: Stack(
             children: [
@@ -82,7 +82,7 @@ class ecomProductCardHorizontal extends StatelessWidget {
                   ],
                 ),
 
-                Spacer(),
+                const Spacer(),
                 //If we use the space as it is, it is going to cause an error becuase
                 //it takes up the whole page, so to overcome this issue, we will wrap the horizontal
                 //cards with a list view first and make the scroll direction horizontal and then
@@ -93,7 +93,7 @@ class ecomProductCardHorizontal extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     /// Pricing
-                    Flexible(child: const ecomProductPriceText(price: "250")),
+                    const Flexible(child: ecomProductPriceText(price: "250")),
                     //We wrapped the upper widget with with flexible because if we put a huge price
                     // range it will cause an error, so to overcome that error, we wrapped it with
                     //Flexible widget.

@@ -1,7 +1,6 @@
 import 'package:ecom_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/images_strings.dart';

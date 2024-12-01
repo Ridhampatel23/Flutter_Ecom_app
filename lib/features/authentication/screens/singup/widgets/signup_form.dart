@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../verify_email.dart';
 
 class ecomSignupForm extends StatelessWidget {
   const ecomSignupForm({

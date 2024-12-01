@@ -2,7 +2,6 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:ecom_store/common/widgets/loaders/loader_animation.dart';
 import 'package:ecom_store/utils/popups/loaders.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

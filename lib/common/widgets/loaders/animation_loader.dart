@@ -1,4 +1,3 @@
-import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

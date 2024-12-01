@@ -1,13 +1,11 @@
 import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/brands/brand_card.dart';
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
-import 'package:ecom_store/common/widgets/products/sortable/sortable_products.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
 import 'package:ecom_store/features/shop/screens/brand/brand_products.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class AllBrandsScreen extends StatelessWidget {
   const AllBrandsScreen({super.key});

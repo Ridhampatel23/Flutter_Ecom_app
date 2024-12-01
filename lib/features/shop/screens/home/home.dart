@@ -7,7 +7,6 @@ import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/seach_container.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
