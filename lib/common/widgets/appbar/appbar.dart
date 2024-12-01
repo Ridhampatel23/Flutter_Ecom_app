@@ -14,19 +14,20 @@ class ecomAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.showBackArrow = false,
       this.leadingIcon,
       this.actions,
-      this.leadingOnPressed});
+      this.leadingOnPressed, this.padding = ecomSizes.medium });
 
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
+  final double padding;
 
   @override
   Widget build(BuildContext context) {
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: ecomSizes.medium),
+      padding: EdgeInsets.symmetric(horizontal: padding),
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow

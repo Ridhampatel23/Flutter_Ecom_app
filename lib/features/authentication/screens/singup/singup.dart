@@ -5,6 +5,8 @@ import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../common/widgets/appbar/appbar.dart';
+
 class signupScreen extends StatelessWidget {
   const signupScreen({super.key});
 
@@ -12,7 +14,7 @@ class signupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const ecomAppBar(showBackArrow: true, padding: 0),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(ecomSizes.defaultSpace),
