@@ -103,6 +103,7 @@ class LoginController extends GetxController{
 
     }catch(e){
       ecomLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
+      ecomFullScreenLoader.stopLoading();
     }
   }
   }

@@ -24,8 +24,8 @@ class UserController extends GetxController {
         final user = UserModel(
             id: userCredentials.user!.uid,
             userName: userName,
-            email: userCredentials.user!.email ?? "",
-            firstName: nameParts[0],
+            email: userCredentials.user?.email ?? "unknown@example.com",
+            firstName: nameParts.isNotEmpty ? nameParts[0] : "User",
             lastName:
                 nameParts.length > 1 ? nameParts.sublist(1).join(" ") : "",
             phoneNumber: userCredentials.user!.phoneNumber ?? "",
