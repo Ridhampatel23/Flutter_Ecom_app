@@ -1,5 +1,7 @@
+import 'package:ecom_store/common/widgets/loaders/animation_loader.dart';
 import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom_store/features/authentication/controllers/signup/network_manager.dart';
+import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/popups/full_screen_loader.dart';
 import 'package:ecom_store/utils/popups/loaders.dart';
@@ -18,6 +20,7 @@ class LoginController extends GetxController{
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
  // Press Ctrl + O to find methods to override
   @override
@@ -70,4 +73,36 @@ class LoginController extends GetxController{
       }
 
     }
+
+
+  /// -- Google SignIn Authentication
+  Future<void> googleSignIn() async {
+    try{
+      // Start Loading
+      ecomFullScreenLoader.openLoadingDialogue("Loggin you in...", ecomImages.decoderAnimation);
+
+      //Check Network connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        // Remove Loader
+        ecomFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Google Authentication
+      final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
+
+      // Save User Record
+      await userController.saveUserRecord(userCredentials);
+
+      // Remove Loader
+      ecomFullScreenLoader.stopLoading();
+
+      // Redirect
+      AuthenticationRepository.instance.screenRedirect();
+
+    }catch(e){
+      ecomLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
+    }
+  }
   }

@@ -1,4 +1,7 @@
+import 'package:ecom_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/images_strings.dart';
@@ -11,6 +14,7 @@ class ecomSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +23,7 @@ class ecomSocialButton extends StatelessWidget {
               border: Border.all(color: ecomColors.greyColor),
               borderRadius: BorderRadius.circular(60)),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () => controller.googleSignIn(),
             icon: const ClipOval(
               child: Image(
                 width: ecomSizes.iconLarge,
