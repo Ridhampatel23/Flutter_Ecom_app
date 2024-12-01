@@ -1,7 +1,6 @@
 import 'package:ecom_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:ecom_store/features/authentication/screens/password_config/forgot_password.dart';
 import 'package:ecom_store/features/authentication/screens/singup/singup.dart';
-import 'package:ecom_store/navigation_menu.dart';
 import 'package:ecom_store/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -98,7 +97,7 @@ class ecomLoginForm extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => controller.emailAndPasswordLogIn()),
+                onPressed: () => controller.emailAndPasswordLogIn(),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0), // Uniform padding
