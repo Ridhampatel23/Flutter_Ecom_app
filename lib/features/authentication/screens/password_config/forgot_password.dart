@@ -1,5 +1,7 @@
+import 'package:ecom_store/features/authentication/controllers/forgot_password/forgot_password_controller.dart';
 import 'package:ecom_store/features/authentication/screens/password_config/reset_password.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
+import 'package:ecom_store/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -9,6 +11,7 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgotPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -26,15 +29,20 @@ class ForgotPassword extends StatelessWidget {
             const SizedBox(height: ecomSizes.spaceBtwnSections * 2),
 
             ///Text field
-            TextFormField(
-              decoration: const InputDecoration(
-                  labelText: "Email", prefixIcon: Icon(Iconsax.direct_right)),
+            Form(
+              key: controller.forgotPasswordFormKey,
+              child: TextFormField(
+                controller: controller.email,
+                validator: ecomValidator.validateEmail,
+                decoration: const InputDecoration(
+                    labelText: "Email", prefixIcon: Icon(Iconsax.direct_right)),
+              ),
             ),
             
             const SizedBox(height: ecomSizes.spaceBtwnSections),
 
             ///Submit Button
-            SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: () => Get.to(() => const ResetPassword()), child: const Text('Submit'))),
+            SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: () => controller.sendPasswordResetEmail(), child: const Text('Submit'))),
           ],
         ),
       ),

@@ -49,6 +49,7 @@ class AuthenticationRepository extends GetxController {
           : Get.offAll(const OnBoardingScreen());
     }
   }
+
   /* ------------------------ Email and Password sign-in ------------------*/
 
   /// [EmailAuthentication] Log In
@@ -69,7 +70,6 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong, Please try again';
     }
   }
-
 
   /// [EmailAuthentication] Register
   Future<UserCredential> registerWithEmailAndPassword(
@@ -107,52 +107,10 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [GoogleAuthentication] - Google
-
-  Future<UserCredential?> signInWithGoogle() async {
+  /// [EmailVerification] - Forgot Password
+  Future<void> sendPasswordResetEmail(String email) async {
     try {
-      // Trigger the Authentication popUp
-      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
-
-      //Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
-
-      // Create new Account Credentials
-      final credentials = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-      
-      // Once signed in, return the userCredentials
-      return await _auth.signInWithCredential(credentials);
-
-    } on FirebaseAuthException catch (e) {
-      throw ecomFirebaseAuthException(e.code).message;
-    } on FirebaseException catch (e) {
-      throw ecomFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const ecomFormatException();
-    } on PlatformException catch (e) {
-      throw ecomPlatformException(e.code).message;
-    } catch (e) {
-      if (kDebugMode)
-      print( 'Something went wrong: $e');
-      return null;
-    }
-  }
-
-
-
-
-
-
-  /* ---------------------- ./ end Federated Identity and social sign - in -------------------*/
-
-  Future<void> logout() async {
-    try {
-      await GoogleSignIn().signOut();
-       await FirebaseAuth.instance.signOut();
-       Get.offAll(() => const LoginScreen());
+      await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw ecomFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -166,4 +124,61 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+
+  /// [GoogleAuthentication] - Google
+
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      // Trigger the Authentication popUp
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      //Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
+
+      // Create new Account Credentials
+      final credentials = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the userCredentials
+      return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      throw ecomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw ecomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const ecomFormatException();
+    } on PlatformException catch (e) {
+      throw ecomPlatformException(e.code).message;
+    } catch (e) {
+      if (kDebugMode) {
+        print('Something went wrong: $e');
+        return null;
+      }
+    }
+  }
+
+  // TODO: Implement Facebook SignIn
+
+  /* ---------------------- ./ end Federated Identity and social sign - in -------------------*/
+
+  Future<void> logout() async {
+    try {
+      await GoogleSignIn().signOut();
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => const LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw ecomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw ecomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const ecomFormatException();
+    } on PlatformException catch (e) {
+      throw ecomPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
 }
