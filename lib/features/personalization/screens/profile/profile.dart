@@ -1,6 +1,8 @@
 import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/icons/ecom_circular_icon.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/data/repositories/user/user_repository.dart';
+import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:ecom_store/features/personalization/screens/profile/widget/profile_menu.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const ecomAppBar(showBackArrow: true, title: Text("Profile")),
 
@@ -45,9 +48,9 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: ecomSizes.spaceBtwnItems),
 
               ecomProfileMenu(
-                  onPressed: () {}, title: 'Name', value: 'User 1234'),
+                  onPressed: () {}, title: 'Name', value: controller.user.value.fullName),
               ecomProfileMenu(
-                  onPressed: () {}, title: "Username", value: "User_1234"),
+                  onPressed: () {}, title: "Username", value: controller.user.value.userName),
 
               const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
               const Divider(),
@@ -61,16 +64,16 @@ class ProfileScreen extends StatelessWidget {
               ecomProfileMenu(
                   onPressed: () {},
                   title: "User ID",
-                  value: "12345",
+                  value: controller.user.value.id,
                   icon: Iconsax.copy),
               ecomProfileMenu(
                   onPressed: () {},
                   title: "E-mail",
-                  value: "user123@gmail.com"),
+                  value: controller.user.value.email),
               ecomProfileMenu(
                   onPressed: () {},
                   title: "Phone Number",
-                  value: "123-456-7890"),
+                  value: controller.user.value.phoneNumber),
               ecomProfileMenu(onPressed: () {}, title: "Gender", value: "Male"),
               ecomProfileMenu(
                   onPressed: () {},

@@ -1,3 +1,4 @@
+import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -13,10 +14,11 @@ class ecomUserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller  = UserController.instance;
     return ListTile(
       leading: const ecomCircularIcon(icon: Iconsax.user, width: 50, height: 50),
-      title: Text("User1234", style: Theme.of(context).textTheme.headlineSmall!.apply(color: ecomColors.whiteColor)),
-      subtitle: Text("user123@gmail.com", style: Theme.of(context).textTheme.bodyMedium!.apply(color: ecomColors.whiteColor)),
+      title: Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall!.apply(color: ecomColors.whiteColor)),
+      subtitle: Text(controller.user.value.email, style: Theme.of(context).textTheme.bodyMedium!.apply(color: ecomColors.whiteColor)),
       trailing: IconButton(onPressed: onPressed, icon: const Icon(Iconsax.edit, color: ecomColors.whiteColor,)),
     );
   }
