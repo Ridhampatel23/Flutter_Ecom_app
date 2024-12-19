@@ -20,7 +20,7 @@ class ResetPassword extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.back(), icon: const Icon(CupertinoIcons.clear))
+              onPressed: () => Get.offAll(() => const LoginScreen()), icon: const Icon(CupertinoIcons.clear))
         ],
       ),
       body:  SingleChildScrollView(
