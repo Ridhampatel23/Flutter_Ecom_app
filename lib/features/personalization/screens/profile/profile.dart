@@ -3,9 +3,12 @@ import 'package:ecom_store/common/widgets/icons/ecom_circular_icon.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
 import 'package:ecom_store/data/repositories/user/user_repository.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
+import 'package:ecom_store/features/personalization/screens/change_name/change_name_screen.dart';
 import 'package:ecom_store/features/personalization/screens/profile/widget/profile_menu.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -48,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: ecomSizes.spaceBtwnItems),
 
               ecomProfileMenu(
-                  onPressed: () {}, title: 'Name', value: controller.user.value.fullName),
+                  onPressed: () => Get.to(() => const ChangeName()), title: 'Name', value: controller.user.value.fullName),
               ecomProfileMenu(
                   onPressed: () {}, title: "Username", value: controller.user.value.userName),
 
