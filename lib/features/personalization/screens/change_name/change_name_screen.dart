@@ -24,7 +24,7 @@ class ChangeName extends StatelessWidget {
         children: [
           /// Headings
           Text("Please use your real name for easy verification. This name will appear on several pages.", style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: ecomSizes.spaceBtwnSections),
+          const SizedBox(height: ecomSizes.spaceBtwnSections), //Spacer
 
           /// Text field and button
           Form(
