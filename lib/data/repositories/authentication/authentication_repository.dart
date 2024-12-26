@@ -1,3 +1,4 @@
+import 'package:ecom_store/data/repositories/user/user_repository.dart';
 import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:ecom_store/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:ecom_store/features/authentication/screens/singup/verify_email.dart';
@@ -174,6 +175,47 @@ class AuthenticationRepository extends GetxController {
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
+      throw ecomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw ecomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const ecomFormatException();
+    } on PlatformException catch (e) {
+      throw ecomPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
+
+  /// [ReAuthenticate] - Re Authenticate User
+  Future<void> reAuthenticateWithEmailAndPassword(String email, String password) async {
+    try {
+      // Create a Credential
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+
+      // Re Authenticate
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw ecomFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw ecomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const ecomFormatException();
+    } on PlatformException catch (e) {
+      throw ecomPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    try{
+      //Always delete the FireStore Record first before deleting the Authentication user as you will
+      // lose the userId data which is required to access the specific document in the collection
+      // and never find it in the firestore if you delete the Authentication user first.
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+    }on FirebaseAuthException catch (e) {
       throw ecomFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw ecomFirebaseException(e.code).message;

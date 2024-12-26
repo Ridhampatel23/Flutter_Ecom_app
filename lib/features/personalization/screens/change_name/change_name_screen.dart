@@ -19,12 +19,12 @@ class ChangeName extends StatelessWidget {
         showBackArrow: true,
         title: Text("Change Name", style: Theme.of(context).textTheme.headlineSmall),
       ),
-      body: Padding(padding: EdgeInsets.all(ecomSizes.defaultSpace),
+      body: Padding(padding: const EdgeInsets.all(ecomSizes.defaultSpace),
       child: Column(
         children: [
           /// Headings
           Text("Please use your real name for easy verification. This name will appear on several pages.", style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: ecomSizes.spaceBtwnSections), //Spacer
+          const SizedBox(height: ecomSizes.spaceBtwnSections),
 
           /// Text field and button
           Form(

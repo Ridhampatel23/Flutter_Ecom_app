@@ -78,6 +78,9 @@ class UserRepository extends GetxController {
 
   ///Function to remove a user from the FireStore
   Future<void> removeUserRecord(String userID) async {
+    //Always delete the FireStore Record first before deleting the Authentication user as you will
+    // lose the userId data which is required to access the specific document in the collection
+    // and never find it in the firestore if you delete the Authentication user first.
     try {
       await _db.collection("Users").doc(userID).delete();
     } on FirebaseException catch (e) {
