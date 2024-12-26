@@ -44,12 +44,12 @@ class UserModel {
   /// Convert model to JSON structure for storing it in FireBase
   Map<String, dynamic> toJson(){
     return{
-      "FirstName:" : firstName,
-      "LastName:" : lastName,
-      "UserName:" : userName,
-      "ProfilePicture:" : profilePicture,
+      "FirstName" : firstName,
+      "LastName" : lastName,
+      "UserName" : userName,
+      "ProfilePicture" : profilePicture,
       "Email" : email,
-      "PhoneNumber:" : phoneNumber,
+      "PhoneNumber" : phoneNumber,
     };
   }
 
@@ -68,15 +68,7 @@ class UserModel {
       );
     } else {
       // Handle the case where data is null
-      return UserModel(
-        id: document.id,
-        firstName: "",
-        lastName: "",
-        userName: "",
-        email: "",
-        phoneNumber: "",
-        profilePicture: '',
-      );
+      return UserModel.empty();
     }
   }
 

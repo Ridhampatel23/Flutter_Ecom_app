@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_menu_icon.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -15,6 +16,7 @@ class ecomHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Creating a new instance using Get.put() will trigger the onInit function of the controller.
     final controller = Get.put(UserController());
     return ecomAppBar(
       title: Column(
@@ -27,7 +29,7 @@ class ecomHomeAppBar extends StatelessWidget {
                   .apply(color: ecomColors.greyColor)),
           Obx(() {
             if (controller.profileLoader.value) {
-              // Display a loader while the profile is being fetched
+              // Display a shimmer loader while user profile is being loaded
               return const ecomShimmerEffect(width: 80, height: 15);
             } else {
               return Text(controller.user.value.fullName,

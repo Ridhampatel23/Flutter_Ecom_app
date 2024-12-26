@@ -1,4 +1,3 @@
-import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom_store/data/repositories/user/user_repository.dart';
 import 'package:ecom_store/features/authentication/controllers/signup/network_manager.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
@@ -26,7 +25,7 @@ class UpdateNameController extends GetxController {
 
   Future<void> initializeNames() async {
     firstName.text = userController.user.value.firstName;
-    lastName.text = userController.user.value.lastName;
+    lastName.text = userController.user.value.lastName ;
   }
 
   Future<void> updateUserName() async {

@@ -25,7 +25,7 @@ class UserController extends GetxController {
       if (userCredentials != null) {
         // Convert Name to First and Last Name
         final nameParts =
-            UserModel.nameParts(userCredentials.user!.displayName ?? "");
+            UserModel.nameParts(userCredentials.user?.displayName ?? "User");
         final userName =
             UserModel.generateUserName(userCredentials.user!.displayName ?? "");
 
@@ -51,7 +51,7 @@ class UserController extends GetxController {
     }
   }
 
-  ///Fetch User Recprd
+  ///Fetch User Record
   Future<void> fetchUserRecord() async {
     try{
       profileLoader.value = true;

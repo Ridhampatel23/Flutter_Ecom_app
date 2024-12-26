@@ -27,7 +27,9 @@ class ChangeName extends StatelessWidget {
           const SizedBox(height: ecomSizes.spaceBtwnSections),
 
           /// Text field and button
-          Form(child: Column(
+          Form(
+              key: controller.updateUserNameFormKey,
+              child: Column(
             children: [
               TextFormField(
                 controller: controller.firstName,
