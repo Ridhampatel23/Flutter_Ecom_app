@@ -5,7 +5,6 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/images_strings.dart';
-import '../icons/ecom_circular_icon.dart';
 import '../images/ecom_circular_image.dart';
 import '../shimmers/shimmer.dart';
 

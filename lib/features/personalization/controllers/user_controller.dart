@@ -8,7 +8,6 @@ import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/popups/full_screen_loader.dart';
 import 'package:ecom_store/utils/popups/loaders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -88,7 +87,7 @@ class UserController extends GetxController {
   /// Delete Account Warning
   void deleteAccountWarningPopUp() {
     Get.defaultDialog(
-      contentPadding: EdgeInsets.all(ecomSizes.medium),
+      contentPadding: const EdgeInsets.all(ecomSizes.medium),
       title: "Delete Account",
       middleText:
           "Are you sure you want to delete this account permanently? This action is not reversible and all of your data will be removed permanently.",
@@ -103,7 +102,7 @@ class UserController extends GetxController {
       ),
       cancel: OutlinedButton(
         onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-        child: Text("Cancel"),
+        child: const Text("Cancel"),
       ),
     );
   }
