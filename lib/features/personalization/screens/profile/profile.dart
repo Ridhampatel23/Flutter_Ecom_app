@@ -1,11 +1,14 @@
 import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/icons/ecom_circular_icon.dart';
+import 'package:ecom_store/common/widgets/images/ecom_circular_image.dart';
+import 'package:ecom_store/common/widgets/shimmers/shimmer.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
 import 'package:ecom_store/data/repositories/user/user_repository.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:ecom_store/features/personalization/screens/change_name/change_name_screen.dart';
 import 'package:ecom_store/features/personalization/screens/profile/widget/profile_menu.dart';
 import 'package:ecom_store/features/personalization/screens/profile/widget/re_authenticate_user_login_form.dart';
+import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,10 +35,22 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const ecomCircularIcon(
-                        icon: Iconsax.user, width: 80, height: 80),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty
+                          ? networkImage
+                          : ecomImages.clothingIcon;
+                      return controller.imageUploading.value
+                          ? const ecomShimmerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : ecomCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty);
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () => controller.uploadUserProfilePicture(),
                         child: const Text("Change Profile Picture")),
                   ],
                 ),
@@ -52,9 +67,13 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: ecomSizes.spaceBtwnItems),
 
               ecomProfileMenu(
-                  onPressed: () => Get.to(() => const ChangeName()), title: 'Name', value: controller.user.value.fullName),
+                  onPressed: () => Get.to(() => const ChangeName()),
+                  title: 'Name',
+                  value: controller.user.value.fullName),
               ecomProfileMenu(
-                  onPressed: () {}, title: "Username", value: controller.user.value.userName),
+                  onPressed: () {},
+                  title: "Username",
+                  value: controller.user.value.userName),
 
               const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
               const Divider(),
@@ -89,7 +108,9 @@ class ProfileScreen extends StatelessWidget {
               ///Delete Account Button
               Center(
                 child: ElevatedButton(
-                  style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.red),),
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.red),
+                    ),
                     onPressed: () => controller.deleteAccountWarningPopUp(),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
