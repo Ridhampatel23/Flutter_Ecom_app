@@ -2,7 +2,6 @@ import 'package:ecom_store/common/widgets/shimmers/shimmer.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 
 import '../../../../../common/widgets/appbar/appbar.dart';

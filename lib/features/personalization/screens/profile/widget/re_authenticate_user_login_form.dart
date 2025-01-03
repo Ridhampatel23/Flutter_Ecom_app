@@ -1,7 +1,6 @@
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/validators/validator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,10 +12,10 @@ class ReAuthenticateUserLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: AppBar(title: Text("Re-Authenticate User")),
+      appBar: AppBar(title: const Text("Re-Authenticate User")),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(ecomSizes.defaultSpace),
+          padding: const EdgeInsets.all(ecomSizes.defaultSpace),
           child: Form(
               key: controller.reAuthFormKey,
               child: Column(
@@ -26,7 +25,7 @@ class ReAuthenticateUserLoginForm extends StatelessWidget {
                   TextFormField(
                     controller: controller.verifyEmail,
                     validator: ecomValidator.validateEmail,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         prefixIcon: Icon(Iconsax.direct_right),
                         labelText: "Email Address"),
                   ),
@@ -41,11 +40,11 @@ class ReAuthenticateUserLoginForm extends StatelessWidget {
                           ecomValidator.validateEmptyText("Password", value),
                       decoration: InputDecoration(
                         labelText: "Password",
-                        prefixIcon: Icon(Iconsax.password_check),
+                        prefixIcon: const Icon(Iconsax.password_check),
                         suffixIcon: IconButton(
                           onPressed: () => controller.hidePassword.value =
                               !controller.hidePassword.value,
-                          icon: Icon(Iconsax.eye_slash),
+                          icon: const Icon(Iconsax.eye_slash),
                         ),
                       ),
                     ),
