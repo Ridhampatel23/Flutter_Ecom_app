@@ -1,3 +1,4 @@
+import 'package:ecom_store/common/widgets/images/ecom_circular_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -12,12 +13,14 @@ class ecomVerticalImageText extends StatelessWidget {
     this.textColor = ecomColors.whiteColor,
     this.bgColor,
     this.onTap,
+    this.isNetworkImage = true,
   });
 
   final String image, title;
   final Color textColor;
   final Color? bgColor;
   final void Function()? onTap;
+  final bool isNetworkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +31,12 @@ class ecomVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             ///Circular Images
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(ecomSizes.small),
-              decoration: BoxDecoration(
-                //The statement below means use a bgcolor if there is one specified
-                //Otherwise use the isdarkmode function and use dark or white bg depending on the mode.
-                color: bgColor ?? (ecomHelperFunctions.isDarkMode(context) ? ecomColors.blackColor : ecomColors.whiteColor),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Image(
-                    image: AssetImage(image),
-                    fit: BoxFit.contain,
-                    color: ecomHelperFunctions.isDarkMode(context) ? ecomColors.blackColor : ecomColors.whiteColor),
-              ),
+            ecomCircularImage(
+              padding: ecomSizes.small * 1.4,
+              image: image,
+              isNetworkImage: isNetworkImage,
+              bgColor: bgColor,
+              overlayColor: ecomHelperFunctions.isDarkMode(context) ? ecomColors.light : ecomColors.dark,
             ),
 
             ///Text
