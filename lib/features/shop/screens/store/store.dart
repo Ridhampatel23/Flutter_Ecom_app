@@ -3,6 +3,7 @@ import 'package:ecom_store/common/widgets/custom_shapes/containers/seach_contain
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
 import 'package:ecom_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/shop/controllers/category_controller.dart';
 import 'package:ecom_store/features/shop/screens/brand/all_brands.dart';
 import 'package:ecom_store/features/shop/screens/brand/brand_products.dart';
 import 'package:ecom_store/features/shop/screens/store/widgets/category_tab.dart';
@@ -20,9 +21,10 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance.featuredCategories;
     final dark = ecomHelperFunctions.isDarkMode(context);
     return DefaultTabController(
-      length: 5,
+      length: controller.length,
       child: Scaffold(
         appBar: ecomAppBar(
           title: Text(
@@ -79,28 +81,17 @@ class StoreScreen extends StatelessWidget {
                   ///  keep in mind that you need to wrap the Scaffold (the main widget)
                   ///  with a default tab widget or else the screen will show and error.
 
-                  bottom: const ecomTabBar(
-                    tabs: [
-                      Tab(child: Text("Sports")),
-                      Tab(child: Text("Furniture")),
-                      Tab(child: Text("Electronics")),
-                      Tab(child: Text("Clothes")),
-                      Tab(child: Text("Cosmetics")),
-                    ],
+                  bottom: ecomTabBar(
+                    tabs: controller.map((category) => Tab(child: Text(category.name))).toList(),
                   ),
                 ),
               ];
             },
-            body: const TabBarView(
+            body: TabBarView(
               ///TODO : In the Future once we configure the backend, we will try to
               ///map each category with their own data and change the products.
-              children: [
-                ecomCategoryTab(),
-                ecomCategoryTab(),
-                ecomCategoryTab(),
-                ecomCategoryTab(),
-                ecomCategoryTab(),
-              ],
+              children: controller.map((category) => ecomCategoryTab(category : category)).toList(),
+
             )),
       ),
     );
