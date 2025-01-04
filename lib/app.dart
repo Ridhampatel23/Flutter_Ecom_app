@@ -1,4 +1,5 @@
 import 'package:ecom_store/bindings/general_bindings.dart';
+import 'package:ecom_store/routes/app_routes.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class Main_app extends StatelessWidget {
       darkTheme: mainAppTheme.dark,
       initialBinding: GeneralBindings(),
       color: Colors.white,
+      getPages:ecomAppRoutes.pages,
 
       /// Show Loader or Circular progress indicator while Authentication Repository is decing the relevant screen to be shown.
       home: const Scaffold(

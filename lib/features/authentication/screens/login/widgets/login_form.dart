@@ -1,6 +1,6 @@
 import 'package:ecom_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:ecom_store/features/authentication/screens/password_config/forgot_password.dart';
-import 'package:ecom_store/features/authentication/screens/singup/singup.dart';
+import 'package:ecom_store/features/authentication/screens/singup/signup.dart';
 import 'package:ecom_store/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -83,7 +83,7 @@ class ecomLoginForm extends StatelessWidget {
 
                 ///Forgot Password
                 TextButton(
-                  onPressed: () => Get.to(() => const ForgotPassword()),
+                  onPressed: () => Get.to(() => const ForgotPasswordScreen()),
                   child: const Text(
                     "Forgot Password?",
                   ),
@@ -113,7 +113,7 @@ class ecomLoginForm extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: OutlinedButton(
-                onPressed: () => Get.to(() => const signupScreen()),
+                onPressed: () => Get.to(() => const SignupScreen()),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0), // Matching padding

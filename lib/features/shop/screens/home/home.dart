@@ -68,13 +68,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
 
                   /// -- Promo Slider --
-                  const ecomPromoSlider(
-                    banners: [
-                      ecomImages.newArrivals,
-                      ecomImages.snkrsRestock,
-                      ecomImages.sneakerOfTheWeek,
-                    ],
-                  ),
+                  const ecomPromoSlider(),
                   const SizedBox(height: ecomSizes.spaceBtwnSections ),
 
                   ///-- Heading --

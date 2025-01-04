@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 
-class signupScreen extends StatelessWidget {
-  const signupScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
