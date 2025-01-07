@@ -119,6 +119,7 @@ flutter:
     - assets/images/products_images/
     - assets/images/loading_animations/
     - assets/icons/
+    - assets/icons/Categories/
     - assets/videos/privacy_policy_videos/
 
   # An image asset can refer to one or more resolution-specific "variants", see

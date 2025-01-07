@@ -33,10 +33,16 @@ class ecomImages{
   // -- Products
   static const String nikeDunkGreen = "assets/images/products_images/nikeDunkGreen.jpg";
 
-  // -- Clothing Icon
-  static const String clothingIcon  = "assets/icons/clothingIcon.png";
-
   // -- loading animations
   static const String decoderAnimation = "assets/images/loading_animations/searching_file.json";
+
+  // -- categories logo
+  static const String cosmeticsIcon = "assets/icons/Categories/Cosmetics.png";
+  static const String sportsIcon = "assets/icons/Categories/Sports.png";
+  static const String shoesIcon = "assets/icons/Categories/Shoes.png";
+  static const String furnitureIcon = "assets/icons/Categories/Furniture.png";
+  static const String petsIcon = "assets/icons/Categories/Pets.png";
+  static const String electronicsIcon = "assets/icons/Categories/Electronics.png";
+  static const String clothingIcon  = "assets/icons/clothingIcon.png";
 
 }
