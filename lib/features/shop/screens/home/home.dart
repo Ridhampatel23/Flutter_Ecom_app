@@ -1,5 +1,7 @@
 import 'package:ecom_store/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:ecom_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:ecom_store/features/shop/controllers/product_controller.dart';
+import 'package:ecom_store/features/shop/models/product_model.dart';
 import 'package:ecom_store/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/promo_slider.dart';
@@ -16,6 +18,8 @@ import 'widgets/home_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +81,13 @@ class HomeScreen extends StatelessWidget {
                   ecomSectionHeading(title: "Popular Products", onPressed: () => Get.to(() => const AllProductsScreen())),
                   const SizedBox(height: ecomSizes.spaceBtwnItems),
 
-                  ecomGridLayout(itemCount: 4, itemBuilder: (_ , index) => const ecomProductCardVertical()),
+                  Obx((){
+                    if (controller.isLoading == true)  return ecomVerticalProductShimmer();
+
+                    if (controller.featuredProducts.isEmpty) { return Center(
+                      child: Text('No Data Found!', style: Theme.of(context).textTheme.bodyMedium),
+                    );}
+                    return ecomGridLayout(itemCount: controller.featuredProducts.length, itemBuilder: (_ , index) => ecomProductCardVertical(product: controller.featuredProducts[index]));}),
 
                 ],
               ),

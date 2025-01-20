@@ -72,6 +72,7 @@ class ProductModel {
   /// Map JSON document snapshot from Firebase to Model
   factory ProductModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() == null) return ProductModel.empty();
     final data = document.data()!;
     return ProductModel(
       id: document.id,
