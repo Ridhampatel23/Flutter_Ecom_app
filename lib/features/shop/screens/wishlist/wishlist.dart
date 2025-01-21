@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../models/product_model.dart';
+
+
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
 
@@ -31,7 +34,7 @@ class WishlistScreen extends StatelessWidget {
             children: [
               ecomGridLayout(
                   itemCount: 8,
-                  itemBuilder: (_, index) => const ecomProductCardVertical())
+                  itemBuilder: (_, index) => ecomProductCardVertical(product: ProductModel.empty()))
             ],
           ),
         ),

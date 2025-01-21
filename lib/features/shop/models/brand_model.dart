@@ -44,10 +44,9 @@ class BrandModel {
   /// Map Json oriented document snapshot from Firebase to UserModel
   factory BrandModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
-    if (document.data() != null) {
-      final data = document.data!();
+    final data = document.data(); // Nullable
 
-      // Map JSON record to the Model
+    if (data != null) {
       return BrandModel(
         id: document.id,
         image: data['Image'] ?? '',
@@ -56,5 +55,9 @@ class BrandModel {
         productsCount: int.parse((data['ProductsCount'] ?? 0).toString()),
       );
     }
+
+    // Handle the null case if needed (optional)
+    throw Exception('Document data is null');
   }
+
 }

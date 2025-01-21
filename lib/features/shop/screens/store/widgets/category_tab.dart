@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../../../common/widgets/brands/brand_showcase.dart';
 import '../../../../../utils/constants/images_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
+import '../../../models/product_model.dart';
 
 class ecomCategoryTab extends StatelessWidget {
   const ecomCategoryTab({
@@ -39,7 +40,7 @@ class ecomCategoryTab extends StatelessWidget {
             ecomSectionHeading(title: "You might like", onPressed: () {}),
             const SizedBox(height: ecomSizes.spaceBtwnItems),
 
-            ecomGridLayout(itemCount: 4, itemBuilder: (_, index) => const ecomProductCardVertical()),
+            ecomGridLayout(itemCount: 4, itemBuilder: (_, index) => ecomProductCardVertical(product: ProductModel.empty())),
             const SizedBox(height: ecomSizes.spaceBtwnSections),
           ],
         ),
