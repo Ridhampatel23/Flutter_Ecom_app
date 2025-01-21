@@ -1,6 +1,6 @@
 import 'package:ecom_store/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:ecom_store/common/widgets/shimmers/vertical_product_shimmer.dart';
-import 'package:ecom_store/features/shop/controllers/product_controller.dart';
+import 'package:ecom_store/features/shop/controllers/product/product_controller.dart';
 import 'package:ecom_store/features/shop/models/product_model.dart';
 import 'package:ecom_store/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom_store/features/shop/screens/home/widgets/home_categories.dart';

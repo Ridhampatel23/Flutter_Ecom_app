@@ -30,7 +30,7 @@ class ProductDetailPage extends StatelessWidget {
         child: Column(
           children: [
             ///Product Image Slider
-            const ecomProductImageSlider(),
+            ecomProductImageSlider(product: product),
 
             /// -- Product Details
             Padding(padding: const EdgeInsets.only(right: ecomSizes.defaultSpace, left: ecomSizes.defaultSpace,top: ecomSizes.defaultSpace),
@@ -41,7 +41,7 @@ class ProductDetailPage extends StatelessWidget {
 
 
                 ///Price, Title, Stock and Brand
-                const ecomProductMetaData(),
+                ecomProductMetaData(product: product),
                 const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
 
 

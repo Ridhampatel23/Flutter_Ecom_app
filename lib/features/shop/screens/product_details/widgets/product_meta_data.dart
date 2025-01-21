@@ -2,6 +2,7 @@ import 'package:ecom_store/common/widgets/images/ecom_circular_image.dart';
 import 'package:ecom_store/common/widgets/products/product_cards/product_price.dart';
 import 'package:ecom_store/common/widgets/texts/ecom_brand_title_text_with_verified_icon.dart';
 import 'package:ecom_store/common/widgets/texts/product_title_text.dart';
+import 'package:ecom_store/features/shop/models/product_model.dart';
 import 'package:ecom_store/utils/constants/enums.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
@@ -12,7 +13,9 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class ecomProductMetaData extends StatelessWidget {
-  const ecomProductMetaData({super.key});
+  const ecomProductMetaData({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

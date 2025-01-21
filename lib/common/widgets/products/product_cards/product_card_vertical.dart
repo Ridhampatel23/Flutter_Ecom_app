@@ -2,7 +2,7 @@ import 'package:ecom_store/common/styles/shadows.dart';
 import 'package:ecom_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecom_store/common/widgets/images/ecom_rounded_banner.dart';
 import 'package:ecom_store/common/widgets/products/product_cards/product_price.dart';
-import 'package:ecom_store/features/shop/controllers/product_controller.dart';
+import 'package:ecom_store/features/shop/controllers/product/product_controller.dart';
 import 'package:ecom_store/features/shop/screens/product_details/product_detail.dart';
 import 'package:ecom_store/utils/constants/colors.dart';
 import 'package:ecom_store/utils/constants/enums.dart';

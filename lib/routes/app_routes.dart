@@ -26,7 +26,7 @@ class ecomAppRoutes{
     GetPage(name: ecomRoutes.wishlist, page: () => const WishlistScreen()),
     GetPage(name: ecomRoutes.settings, page: () => const SettingsScreen()),
     GetPage(name: ecomRoutes.productReviews, page: () => const ProductReviewsScreen()),
-    GetPage(name: ecomRoutes.productDetails, page: () => const ProductDetailPage()),
+    // GetPage(name: ecomRoutes.productDetails, page: () => const ProductDetailPage()),
     GetPage(name: ecomRoutes.order, page: () => const OrderScreen()),
     GetPage(name: ecomRoutes.checkout, page: () => const CheckoutScreen()),
     GetPage(name: ecomRoutes.cart, page: () => const CartScreen()),
