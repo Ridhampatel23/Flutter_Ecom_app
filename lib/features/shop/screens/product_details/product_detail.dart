@@ -6,6 +6,7 @@ import 'package:ecom_store/features/shop/screens/product_details/widgets/product
 import 'package:ecom_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:ecom_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:ecom_store/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:ecom_store/utils/constants/enums.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +47,8 @@ class ProductDetailPage extends StatelessWidget {
 
 
                 /// -- Attributes
-                const ecomProductAttributes(),
-                const SizedBox(height: ecomSizes.spaceBtwnSections),
+                if(product.productType == ProductType.variable.toString()) ecomProductAttributes(product: product),
+                if(product.productType == ProductType.variable.toString()) const SizedBox(height: ecomSizes.spaceBtwnSections),
 
                 ///  -- Checkout Button
                 SizedBox(height: 50, width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const CartScreen()), child: const Text("Checkout"))),
@@ -56,15 +57,15 @@ class ProductDetailPage extends StatelessWidget {
                 ///  -- Description
                 const ecomSectionHeading(title: "Description", showActionButton: false),
                 const SizedBox(height: ecomSizes.spaceBtwnItems),
-                const ReadMoreText(
-                  "These are one of the OG Colorway Nike Dunks in Green. Jordan fueled all his love and heart creating these. Buy these and feel like a king of sneaker heads ",
+                ReadMoreText(
+                  product.description ?? '',
                   trimLines: 2,
                   colorClickableText: Colors.blue,
                   trimMode: TrimMode.Line ,
                   trimCollapsedText: "Show More",
                   trimExpandedText: "Show Less",
-                  moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                  lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                 ),
 
                 ///  -- Reviews

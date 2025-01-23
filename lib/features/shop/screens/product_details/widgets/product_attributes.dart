@@ -8,12 +8,16 @@ import 'package:ecom_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/chips/choice_chip.dart';
+import '../../../models/product_model.dart';
 
 class ecomProductAttributes extends StatelessWidget {
-  const ecomProductAttributes({super.key});
+  const ecomProductAttributes({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+
     final dark = ecomHelperFunctions.isDarkMode(context);
     return Column(
       children: [
@@ -80,43 +84,25 @@ class ecomProductAttributes extends StatelessWidget {
         /// -- Attributes
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ecomSectionHeading(title: "Colors", showActionButton: false),
-            const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
-           Wrap(
-             spacing: 8,
-             children: [
-               ecomChoiceChip(text: 'Green', selected: true, onSelected: (value){}),
-               ecomChoiceChip(text: 'Blue', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'Yellow', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'Green', selected: true, onSelected: (value){}),
-               ecomChoiceChip(text: 'Blue', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'Yellow', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'Green', selected: true, onSelected: (value){}),
-               ecomChoiceChip(text: 'Blue', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'Yellow', selected: false, onSelected: (value){}),
-             ],
-           )
-          ],
-        ),
-
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ecomSectionHeading(title: "Sizes", showActionButton: false,),
-            const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
-           Wrap(
-             spacing: 5,
-             children: [
-               ecomChoiceChip(text: 'US S', selected: true, onSelected: (value){}),
-               ecomChoiceChip(text: 'US M', selected: false, onSelected: (value){}),
-               ecomChoiceChip(text: 'US L', selected: false, onSelected: (value){}),
-             ],
-           )
-          ],
+          children: product.productAttributes!
+              .map((attribute) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                       ecomSectionHeading(
+                          title: attribute.name ?? '', showActionButton: false),
+                      const SizedBox(height: ecomSizes.spaceBtwnItems / 2),
+                      Wrap(
+                        spacing: 8,
+                        children: attribute.values!.map((value) => ecomChoiceChip(
+                            text: value,
+                            selected: false,
+                            onSelected: (value) {})).toList(),
+                      ),
+                    ],
+                  ))
+              .toList(),
         ),
       ],
     );
   }
 }
-

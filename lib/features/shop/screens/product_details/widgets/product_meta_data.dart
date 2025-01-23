@@ -2,6 +2,7 @@ import 'package:ecom_store/common/widgets/images/ecom_circular_image.dart';
 import 'package:ecom_store/common/widgets/products/product_cards/product_price.dart';
 import 'package:ecom_store/common/widgets/texts/ecom_brand_title_text_with_verified_icon.dart';
 import 'package:ecom_store/common/widgets/texts/product_title_text.dart';
+import 'package:ecom_store/features/shop/controllers/product/product_controller.dart';
 import 'package:ecom_store/features/shop/models/product_model.dart';
 import 'package:ecom_store/utils/constants/enums.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
@@ -20,6 +21,8 @@ class ecomProductMetaData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = ecomHelperFunctions.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,7 +38,7 @@ class ecomProductMetaData extends StatelessWidget {
                 vertical: ecomSizes.xsmall,
               ),
               child: Text(
-                "25%",
+                '$salePercentage',
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
@@ -45,15 +48,10 @@ class ecomProductMetaData extends StatelessWidget {
             const SizedBox(width: ecomSizes.spaceBtwnItems),
 
             /// Price
-            Text(
-              "\$250",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .apply(decoration: TextDecoration.lineThrough),
-            ),
-            const SizedBox(width: ecomSizes.spaceBtwnItems),
-            const Expanded(child: ecomProductPriceText(price: "175", isLarge: true)),
+            if(product.productType == ProductType.single.toString() && product.salePrice > 0)
+              Text("\$${product.price}",style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
+            if(product.productType == ProductType.single.toString() && product.salePrice > 0) const SizedBox(width: ecomSizes.spaceBtwnItems),
+            Expanded(child: ecomProductPriceText(price: controller.getProductPrice(product), isLarge: true)),
           ],
         ),
         const SizedBox(height: ecomSizes.spaceBtwnItems / 1.5),
@@ -65,24 +63,24 @@ class ecomProductMetaData extends StatelessWidget {
         /// Stock
         Row(
           children: [
-            const ecomProductTitleText(title: "Availability"),
+            ecomProductTitleText(title: product.title),
             const SizedBox(width: ecomSizes.spaceBtwnItems),
-            Text("In Stock", style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.getProductStockStatus(product.stock), style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
         const SizedBox(height: ecomSizes.spaceBtwnItems / 2 ),
 
         /// Brand
-        const Row(
+         Row(
           children: [
-            ecomCircularImage(
+            const ecomCircularImage(
               image: ecomImages.nikeDunkGreen,
               width: 32,
               height: 32,
             ),
-             SizedBox(width: ecomSizes.spaceBtwnItems),
+             const SizedBox(width: ecomSizes.spaceBtwnItems),
              ecomBrandTitleWithVerifiedIcon(
-              title: "Nike",
+              title: product.brand != null ? product.brand!.name : '',
               brandTextSize: TextSizes.medium,
             ),
           ],
