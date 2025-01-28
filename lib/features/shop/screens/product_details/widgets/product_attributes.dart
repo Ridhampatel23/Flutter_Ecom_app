@@ -19,6 +19,8 @@ class ecomProductAttributes extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final dark = ecomHelperFunctions.isDarkMode(context);
+    final
+
     return Column(
       children: [
         /// -- Selected Attribute Pricing and Description
