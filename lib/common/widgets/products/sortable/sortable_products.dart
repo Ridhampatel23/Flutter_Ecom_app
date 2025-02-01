@@ -1,5 +1,8 @@
+import 'package:ecom_store/features/shop/controllers/all_products_controller.dart';
 import 'package:ecom_store/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
@@ -8,11 +11,16 @@ import '../product_cards/product_card_vertical.dart';
 
 class ecomSortableProducts extends StatelessWidget {
   const ecomSortableProducts({
-    super.key,
+    super.key, required this.products,
   });
+
+  final List<ProductModel> products;
 
   @override
   Widget build(BuildContext context) {
+    // Initialize controller for managing product sorting
+    final controller = Get.put(AllProductsController());
+
     return Column(
       children: [
         /// Drop Down
@@ -35,7 +43,7 @@ class ecomSortableProducts extends StatelessWidget {
         const SizedBox(height: ecomSizes.spaceBtwnSections),
 
         /// Products
-        ecomGridLayout(itemCount: 5, itemBuilder: (_, index) => ecomProductCardVertical(product: ProductModel.empty())),
+        Obx(() => ecomGridLayout(itemCount: 5, itemBuilder: (_, index) => ecomProductCardVertical(product: controller.products[index]))),
       ],
     );
   }
