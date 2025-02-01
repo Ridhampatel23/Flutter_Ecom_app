@@ -19,7 +19,7 @@ class BrandProducts extends StatelessWidget {
             ecomBrandCard(),
             SizedBox(height: ecomSizes.spaceBtwnSections),
 
-            ecomSortableProducts(),
+            ecomSortableProducts(products: []),
           ],
 
         ),

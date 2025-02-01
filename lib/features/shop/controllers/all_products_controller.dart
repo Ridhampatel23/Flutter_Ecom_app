@@ -33,13 +33,13 @@ void sortProducts (String sortOptions){
     case 'Name':
       products.sort((a, b) => a.title.compareTo(b.title));
       break;
-    case 'Higher Price':
+    case 'Price: High - Low':
       products.sort((a, b) => b.price.compareTo(a.price));
       break;
-    case 'Lower Price':
+    case 'Price: Low - high':
       products.sort((a, b) => a.price.compareTo(b.price));
       break;
-    case 'Newest':
+    case 'New Arrivals':
       products.sort((a, b) => b.date!.compareTo(b.date!));
       break;
     case 'Sale':
@@ -57,6 +57,12 @@ void sortProducts (String sortOptions){
       // Default sorting option: Name
       products.sort((a, b) => a.title.compareTo(b.title));
   }
+}
+
+void assignProducts(List<ProductModel> products){
+    //Assign products to the 'Products' List
+  this.products.assignAll(products);
+  sortProducts('Name');
 }
 
 }

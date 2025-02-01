@@ -3,6 +3,7 @@ import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:ecom_store/features/shop/controllers/all_products_controller.dart';
 import 'package:ecom_store/utils/constants/sizes.dart';
+import 'package:ecom_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -35,22 +36,15 @@ class AllProductsScreen extends StatelessWidget {
             builder: (context, snapshot) {
               // Check the state of the FutureBuilder snapShot
               const loader = ecomVerticalProductShimmer();
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return loader;
-              }
+              final widget = ecomCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
 
-              if(!snapshot.hasData || snapshot.data == null || snapshot.data!.isEmpty){
-                return const Center(child: Text('No Data Found'));
-              }
-
-              if(snapshot.hasError){
-                return const Center(child: Text('Something went wrong.'));
-              }
+              // Return appropriate widget based on snapshot data
+              if(widget != null) return widget;
 
               // Products Found!
               final products = snapshot.data!;
 
-              return ecomSortableProducts();
+              return ecomSortableProducts(products: products);
             }
           ),
         ),

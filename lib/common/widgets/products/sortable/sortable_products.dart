@@ -11,7 +11,8 @@ import '../product_cards/product_card_vertical.dart';
 
 class ecomSortableProducts extends StatelessWidget {
   const ecomSortableProducts({
-    super.key, required this.products,
+    super.key,
+    required this.products,
   });
 
   final List<ProductModel> products;
@@ -21,10 +22,14 @@ class ecomSortableProducts extends StatelessWidget {
     // Initialize controller for managing product sorting
     final controller = Get.put(AllProductsController());
 
+    // products is obs in the controller class, whenever it gets changed the Obx grid layout below will be redrawn as well.
+    controller.assignProducts(products);
+
     return Column(
       children: [
         /// Drop Down
         DropdownButtonFormField(
+          value: controller.selectedSortOption.value,
           decoration: const InputDecoration(
             prefixIcon: Icon(Iconsax.sort),
           ),
@@ -33,17 +38,23 @@ class ecomSortableProducts extends StatelessWidget {
             "Price: High - Low",
             "Price: Low - high",
             "Sale",
-            "New Arrivals",
-            "Most Popular"
+            "New Arrivals"
           ]
-              .map((option) => DropdownMenuItem(value: option, child: Text(option)))
+              .map((option) =>
+                  DropdownMenuItem(value: option, child: Text(option)))
               .toList(),
-          onChanged: (value) {},
+          onChanged: (value) {
+            // Sorted Products based on selected option
+            controller.sortProducts(value!);
+          },
         ),
         const SizedBox(height: ecomSizes.spaceBtwnSections),
 
         /// Products
-        Obx(() => ecomGridLayout(itemCount: 5, itemBuilder: (_, index) => ecomProductCardVertical(product: controller.products[index]))),
+        Obx(() => ecomGridLayout(
+            itemCount: controller.products.length,
+            itemBuilder: (_, index) =>
+                ecomProductCardVertical(product: controller.products[index]))),
       ],
     );
   }

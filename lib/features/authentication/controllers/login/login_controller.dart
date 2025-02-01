@@ -1,5 +1,5 @@
 import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
-import 'package:ecom_store/features/authentication/controllers/signup/network_manager.dart';
+import 'package:ecom_store/utils/helpers/network_manager.dart';
 import 'package:ecom_store/features/personalization/controllers/user_controller.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
 import 'package:ecom_store/utils/popups/full_screen_loader.dart';

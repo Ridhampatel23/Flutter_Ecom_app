@@ -1,6 +1,6 @@
 import 'package:ecom_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom_store/data/repositories/user/user_repository.dart';
-import 'package:ecom_store/features/authentication/controllers/signup/network_manager.dart';
+import 'package:ecom_store/utils/helpers/network_manager.dart';
 import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:ecom_store/features/personalization/screens/profile/widget/re_authenticate_user_login_form.dart';
 import 'package:ecom_store/utils/constants/images_strings.dart';
