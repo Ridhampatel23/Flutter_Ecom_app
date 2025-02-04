@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../features/shop/models/brand_model.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -26,7 +27,7 @@ class ecomBrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with Products Count
-          const ecomBrandCard(showBorder: false),
+          ecomBrandCard(showBorder: false, brand: BrandModel.empty()),
           const SizedBox(height: ecomSizes.spaceBtwnItems),
 
           Row(

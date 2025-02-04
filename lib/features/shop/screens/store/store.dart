@@ -2,7 +2,9 @@ import 'package:ecom_store/common/widgets/appbar/appbar.dart';
 import 'package:ecom_store/common/widgets/custom_shapes/containers/seach_container.dart';
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
 import 'package:ecom_store/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:ecom_store/common/widgets/shimmers/brands_shimmer.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/shop/controllers/brand_controller.dart';
 import 'package:ecom_store/features/shop/controllers/category_controller.dart';
 import 'package:ecom_store/features/shop/screens/brand/all_brands.dart';
 import 'package:ecom_store/features/shop/screens/brand/brand_products.dart';
@@ -21,10 +23,12 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = CategoryController.instance.featuredCategories;
+    // We create or find a new instance of BrandController to trigger the on init function of the controller.
+    final brandController = Get.put(BrandController());
+    final categoryController = CategoryController.instance.featuredCategories;
     final dark = ecomHelperFunctions.isDarkMode(context);
     return DefaultTabController(
-      length: controller.length,
+      length: categoryController.length,
       child: Scaffold(
         appBar: ecomAppBar(
           title: Text(
@@ -67,12 +71,25 @@ class StoreScreen extends StatelessWidget {
                             height: ecomSizes.spaceBtwnSections / 1.5),
 
                         /// -- Brands Grid
-                        ecomGridLayout(
-                            itemCount: 4,
-                            mainAxisExtent: 80,
-                            itemBuilder: (_, index) {
-                              return ecomBrandCard(onTap: () => Get.to(() => const BrandProducts()));
-                            }),
+                        Obx(
+                            () {
+                              if(brandController.isLoading.value) return const ecomBrandsShimmer();
+
+                              if(brandController.featureBrands.isEmpty){
+                                return Center(
+                                  child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium!.apply(color: ecomColors.whiteColor)),
+                                );
+                              }
+
+                              return  ecomGridLayout(
+                                  itemCount: brandController.featureBrands.length,
+                                  mainAxisExtent: 80,
+                                  itemBuilder: (_, index) {
+                                    final brand = brandController.featureBrands[index];
+                                    return ecomBrandCard(showBorder: true, brand: brand, onTap: () => Get.to(() => BrandProducts(brand: brand)));
+                                  });
+                            }
+                        ),
                       ],
                     ),
                   ),
@@ -82,7 +99,7 @@ class StoreScreen extends StatelessWidget {
                   ///  with a default tab widget or else the screen will show and error.
 
                   bottom: ecomTabBar(
-                    tabs: controller.map((category) => Tab(child: Text(category.name))).toList(),
+                    tabs: categoryController.map((category) => Tab(child: Text(category.name))).toList(),
                   ),
                 ),
               ];
@@ -90,7 +107,7 @@ class StoreScreen extends StatelessWidget {
             body: TabBarView(
               ///TODO : In the Future once we configure the backend, we will try to
               ///map each category with their own data and change the products.
-              children: controller.map((category) => ecomCategoryTab(category : category)).toList(),
+              children: categoryController.map((category) => ecomCategoryTab(category : category)).toList(),
 
             )),
       ),

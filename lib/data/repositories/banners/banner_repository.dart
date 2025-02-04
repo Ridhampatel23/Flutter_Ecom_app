@@ -24,7 +24,7 @@ class BannerRepository extends GetxController{
     } on PlatformException catch (e) {
       throw ecomPlatformException(e.code).message;
     } on FormatException catch (e) {
-      throw ecomFormatException();
+      throw const ecomFormatException();
     } catch (e){
       throw 'Something went wrong while fetching Banners!';
     }

@@ -1,3 +1,4 @@
+import 'package:ecom_store/features/shop/models/brand_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -11,9 +12,10 @@ import '../texts/ecom_brand_title_text_with_verified_icon.dart';
 
 class ecomBrandCard extends StatelessWidget {
   const ecomBrandCard({
-    super.key, this.showBorder = true, this.onTap,
+    super.key, this.showBorder = true, this.onTap, required this.brand,
   });
 
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTap;
 
@@ -30,7 +32,7 @@ class ecomBrandCard extends StatelessWidget {
             /// -- Icon
             Flexible(
               child: ecomCircularImage(
-                image: ecomImages.clothingIcon,
+                image: ecomImages.clothingIcon, //Todo : Change the static image to brand image once you're done uploading data in Firebase, and also add isNetworkImage to true
                 bgColor: Colors.transparent,
                 overlayColor: ecomHelperFunctions
                     .isDarkMode(context)
@@ -48,11 +50,11 @@ class ecomBrandCard extends StatelessWidget {
                 crossAxisAlignment:
                 CrossAxisAlignment.start,
                 children: [
-                  const ecomBrandTitleWithVerifiedIcon(
-                      title: 'Nike',
+                  ecomBrandTitleWithVerifiedIcon(
+                      title: brand.name,
                       brandTextSize: TextSizes.large),
                   Text(
-                    "256 Products",
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme

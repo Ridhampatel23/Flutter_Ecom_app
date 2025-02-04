@@ -42,11 +42,15 @@ class BrandModel {
   }
 
   /// Map Json oriented document snapshot from Firebase to UserModel
-  factory BrandModel.fromSnapshot(
+  factory BrandModel.fromSnapshot( // Factory functions always return the main class it is built on,
+      // as it builds a new constructor with the name provided
+      // so you don't need to define a type but you do need to make sure
+      // to return an object of the same class.
       DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data(); // Nullable
+    if (document.data != null) {
+    final data = document.data()!; // Nullable
 
-    if (data != null) {
+
       return BrandModel(
         id: document.id,
         image: data['Image'] ?? '',
@@ -54,10 +58,9 @@ class BrandModel {
         isFeatured: data['IsFeatured'] ?? false,
         productsCount: int.parse((data['ProductsCount'] ?? 0).toString()),
       );
+    } else {
+      return BrandModel.empty();
     }
-
-    // Handle the null case if needed (optional)
-    throw Exception('Document data is null');
   }
 
 }

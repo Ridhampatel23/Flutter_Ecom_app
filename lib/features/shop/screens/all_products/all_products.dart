@@ -6,7 +6,6 @@ import 'package:ecom_store/utils/constants/sizes.dart';
 import 'package:ecom_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/products/sortable/sortable_products.dart';
 import '../../models/product_model.dart';

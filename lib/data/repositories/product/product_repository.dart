@@ -61,6 +61,26 @@ class ProductRepository extends GetxController{
   }
 
 
+  Future<List<ProductModel>> getProductsForBrand({required String brandId, int limit = -1}) async {
+    try {
+
+      final querySnapshot = limit == -1 ? await _db.collection('Products').where('Brand.Id',isEqualTo: brandId).get() :
+      await _db.collection('Products').where('Brand.Id',isEqualTo: brandId).limit(limit).get();
+
+      final products = querySnapshot.docs.map((doc) => ProductModel.fromSnapshot(doc)).toList();    // We use .docs here as the snapshot will return an entire list of doc
+
+      return products;
+
+    } on FirebaseException catch(e){
+      throw ecomFirebaseException(e.code).message;
+    } on PlatformException catch(e) {
+      throw ecomPlatformException(e.code).message;
+    }catch (e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
 
   /// TODO : Uncomment when Storage Service class is created ; Upload dummy data to the Cloud Firestore
  /*Future<void> uploadDummyData(List<ProductModel> products) async {
