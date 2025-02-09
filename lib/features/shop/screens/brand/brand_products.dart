@@ -27,7 +27,7 @@ class BrandProducts extends StatelessWidget {
             const SizedBox(height: ecomSizes.spaceBtwnSections),
 
             FutureBuilder(
-              future: controller.getBrandProducts(brand.id),
+              future: controller.getBrandProducts( brandId: brand.id),
               builder: (context, snapshot) {
 
                 ///Handle Loader, No Record or Error Message

@@ -51,6 +51,8 @@ class ProductController extends GetxController{
     } catch(e) {
       ecomLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
       return [];
+    } finally {
+      isLoading.value = false;
     }
   }
 

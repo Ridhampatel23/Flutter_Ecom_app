@@ -1,8 +1,15 @@
 import 'package:ecom_store/common/widgets/layouts/grid_layout.dart';
 import 'package:ecom_store/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:ecom_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:ecom_store/common/widgets/texts/section_heading.dart';
+import 'package:ecom_store/features/shop/controllers/category_controller.dart';
 import 'package:ecom_store/features/shop/models/category_model.dart';
+import 'package:ecom_store/features/shop/screens/all_products/all_products.dart';
+import 'package:ecom_store/features/shop/screens/store/widgets/category_brands.dart';
+import 'package:ecom_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widgets/brands/brand_showcase.dart';
 import '../../../../../utils/constants/images_strings.dart';
@@ -18,6 +25,7 @@ class ecomCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance;
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -30,18 +38,32 @@ class ecomCategoryTab extends StatelessWidget {
         child: Column(
           children: [
             /// -- Brands
-            const ecomBrandShowcase(images: [ecomImages.nikeDunkGreen, ecomImages.nikeDunkGreen, ecomImages.nikeDunkGreen]),
-            const SizedBox(height: ecomSizes.spaceBtwnItems),
-
-            const ecomBrandShowcase(images: [ecomImages.nikeDunkGreen, ecomImages.nikeDunkGreen, ecomImages.nikeDunkGreen]),
+            CategoryBrands(category: category),
             const SizedBox(height: ecomSizes.spaceBtwnItems),
 
             /// - Products
-            ecomSectionHeading(title: "You might like", onPressed: () {}),
-            const SizedBox(height: ecomSizes.spaceBtwnItems),
+            FutureBuilder(
+              future: controller.getCategoryProducts(categoryId: category.id),
+              builder: (context, snapshot) {
 
-            ecomGridLayout(itemCount: 4, itemBuilder: (_, index) => ecomProductCardVertical(product: ProductModel.empty())),
-            const SizedBox(height: ecomSizes.spaceBtwnSections),
+                /// Helper functions to Handle Loader, No record, or Error Messages
+                final response = ecomCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const ecomVerticalProductShimmer());
+                if (response != null) return response;
+
+                /// Record Found!
+                final products = snapshot.data!;
+
+                return Column(
+                  children: [
+                    ecomSectionHeading(title: "You might like", onPressed: () => Get.to(AllProductsScreen(title: category.name,
+                    futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
+                    ))),
+                    const SizedBox(height: ecomSizes.spaceBtwnItems),
+                    ecomGridLayout(itemCount: products.length, itemBuilder: (_, index) => ecomProductCardVertical(product: products[index])),
+                  ],
+                );
+              }
+            ),
           ],
         ),
       ),
