@@ -3,6 +3,7 @@ import 'package:ecom_store/features/authentication/screens/login/login.dart';
 import 'package:ecom_store/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:ecom_store/features/authentication/screens/singup/verify_email.dart';
 import 'package:ecom_store/navigation_menu.dart';
+import 'package:ecom_store/utils/local_storage/storage_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -40,8 +41,14 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
+
+        //Initialize User Specific Storage
+        await ecomLocalStorage.init(user.uid);
+
+        // If the user's email is verified, navigate to the main Navigation Menu
         Get.offAll(() => const NavigationMenu());
       } else {
+        // If the email is not verified, navigate to the VerifyEmailScreen
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
     } else {

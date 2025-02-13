@@ -1,5 +1,6 @@
 import 'package:ecom_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecom_store/common/widgets/images/ecom_rounded_banner.dart';
+import 'package:ecom_store/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:ecom_store/common/widgets/products/product_cards/product_price.dart';
 import 'package:ecom_store/common/widgets/texts/ecom_brand_title_text_with_verified_icon.dart';
 import 'package:ecom_store/common/widgets/texts/product_title_text.dart';
@@ -59,8 +60,7 @@ class ecomProductCardHorizontal extends StatelessWidget {
               const Positioned(
                 top: 0,
                 right: 0,
-                child: ecomCircularIcon(
-                    icon: Iconsax.heart5, color: Colors.red),
+                child: ecomFavouriteIcon(),
               ),
             ],
           ),

@@ -17,6 +17,7 @@ import '../../../../features/shop/models/product_model.dart';
 import '../../icons/ecom_circular_icon.dart';
 import '../../texts/ecom_brand_title_text_with_verified_icon.dart';
 import '../../texts/product_title_text.dart';
+import '../favourite_icon/favourite_icon.dart';
 
 class ecomProductCardVertical extends StatelessWidget {
   const ecomProductCardVertical({super.key, required this.product});
@@ -79,8 +80,7 @@ class ecomProductCardVertical extends StatelessWidget {
                   const Positioned(
                     top: 0,
                     right: 0,
-                    child: ecomCircularIcon(
-                        icon: Iconsax.heart5, color: Colors.red),
+                    child: ecomFavouriteIcon(),
                   ),
                 ],
               ),
@@ -152,3 +152,4 @@ class ecomProductCardVertical extends StatelessWidget {
     );
   }
 }
+
