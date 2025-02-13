@@ -24,6 +24,7 @@ class ecomLocalStorage {
   }
 
 
+
   //Generic method to save data
   Future<void> saveData<ecom>(String key, ecom value) async {
     await _storage.write(key, value);

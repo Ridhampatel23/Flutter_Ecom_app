@@ -77,10 +77,10 @@ class ecomProductCardVertical extends StatelessWidget {
                   ),
 
                   /// Wishlist
-                  const Positioned(
+                   Positioned(
                     top: 0,
                     right: 0,
-                    child: ecomFavouriteIcon(),
+                    child: ecomFavouriteIcon(productId: product.id),
                   ),
                 ],
               ),

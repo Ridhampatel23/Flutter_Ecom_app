@@ -88,10 +88,10 @@ class ecomProductImageSlider extends StatelessWidget {
             ),
 
             ///Appbar Icons
-            const ecomAppBar(
+             ecomAppBar(
               showBackArrow: true,
               actions: [
-                ecomFavouriteIcon(),
+                ecomFavouriteIcon(productId: product.id),
               ],
             )
           ],
